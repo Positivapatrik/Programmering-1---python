@@ -1,0 +1,98 @@
+\section{Kodexempel: Bubble Sort}
+\label{examples:bubblesort}
+\exToSecRef{section:bubblesort}
+\subsection*{Exempel 1: Grundläggande Bubble Sort-algoritm}
+
+\begin{lstlisting}[title=Bubble Sort - Grundläggande implementation]
+def bubble_sort(lista):
+    n = len(lista)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if lista[j] > lista[j + 1]:
+                # Byt plats om elementet är större än det nästa
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]
+
+# Testa med en lista
+tal_lista = [64, 34, 25, 12, 22, 11, 90]
+bubble_sort(tal_lista)
+print("Sorterad lista:", tal_lista)
+# Output: Sorterad lista: [11, 12, 22, 25, 34, 64, 90]
+\end{lstlisting}
+
+\subsection*{Exempel 2: Visualisering av varje steg i sorteringen}
+
+\begin{lstlisting}[title=Bubble Sort - Visualisering av stegen]
+def bubble_sort_med_steg(lista):
+    n = len(lista)
+    for i in range(n):
+        print(f"Pass {i + 1}: {lista}")  # Visa listan vid varje pass
+        for j in range(0, n - i - 1):
+            if lista[j] > lista[j + 1]:
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]
+
+tal_lista = [5, 3, 8, 6]
+bubble_sort_med_steg(tal_lista)
+# Output:
+# Pass 1: [5, 3, 8, 6]
+# Pass 2: [3, 5, 6, 8]
+# Pass 3: [3, 5, 6, 8]
+# Pass 4: [3, 5, 6, 8]
+\end{lstlisting}
+
+\subsection*{Exempel 3: Optimera Bubble Sort med tidig avbrytning}
+
+\begin{lstlisting}[title=Bubble Sort - Optimerad version]
+def bubble_sort_optimerad(lista):
+    n = len(lista)
+    for i in range(n):
+        bytt = False
+        for j in range(0, n - i - 1):
+            if lista[j] > lista[j + 1]:
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]
+                bytt = True
+        if not bytt:
+            break  # Avbryt om listan redan är sorterad
+
+tal_lista = [1, 2, 3, 4, 5]
+bubble_sort_optimerad(tal_lista)
+print("Sorterad lista:", tal_lista)
+# Output: Sorterad lista: [1, 2, 3, 4, 5]
+\end{lstlisting}
+
+\subsection*{Exempel 4: Bubble Sort på strängar}
+
+\begin{lstlisting}[title=Bubble Sort - Sortera strängar]
+def bubble_sort(lista):
+    n = len(lista)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if lista[j] > lista[j + 1]:
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]
+
+sträng_lista = ["banan", "äpple", "citron", "druva"]
+bubble_sort(sträng_lista)
+print("Sorterad lista:", sträng_lista)
+# Output: Sorterad lista: ['äpple', 'banan', 'citron', 'druva']
+\end{lstlisting}
+
+\subsection*{Exempel 5: Praktisk användning av Bubble Sort}
+
+\begin{lstlisting}[title=Bubble Sort - Praktisk användning]
+# Sortera elever baserat på deras poäng
+elever = [("Anna", 85), ("Björn", 75), ("Cecilia", 90), ("David", 80)]
+
+def bubble_sort(lista):
+    n = len(lista)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if lista[j][1] > lista[j + 1][1]:  # Sortera efter poäng
+                lista[j], lista[j + 1] = lista[j + 1], lista[j]
+
+bubble_sort(elever)
+print("Sorterade elever:", elever)
+# Output: Sorterade elever: [('Björn', 75), ('David', 80), ('Anna', 85), ('Cecilia', 90)]
+\end{lstlisting}
+
+\subsection*{Tips och rekommendationer}
+- Bubble Sort är enkel att förstå och implementera, men ineffektiv för stora datamängder.
+- Använd optimerad version för att förbättra prestanda om listan kan vara delvis sorterad.

@@ -1,0 +1,155 @@
+\section{Variabler och Sekvensiell Exekvering}
+\label{section:variables}
+\subsection{Vad är en variabel?}
+En variabel är som en namngiven låda där vi kan lagra data, som till exempel tal eller text. Vi kan senare ändra innehållet i lådan eller använda det i beräkningar.
+
+\begin{lstlisting}[title=Tilldelning]
+minvariabel = 100+1
+\end{lstlisting}
+
+I programmet ser vi hur vi sparar ett värde i en variabel. 
+I exemplet heter våran variabel \textbf{minvariabel} och vi sparar värdet 101 i den.
+Vi kan senare i programmet återanvända våran variabel för att hämta det värde vi sparat i den. 
+Notera att vi använder likamedtecknet = men inte på samma sätt som i matematik. 
+När python ser = så kommer den först göra en uträkning av det som står på höger sida. 
+Det blir alltid ett konkret värde, exempelvis ett tal, eller en text. 
+I exemplet räknar python ut åt oss att $100+1$ blir $101$. 
+Python sparar sedan värdet $101$ i variabeln som vi döpt till \textbf{minvariabel}.
+
+\begrepp{Likamedtecknet}{Likamedtecknet betyder i programmering att vi sparar värdet på högersidan i variabeln vi skrivit på vänstersidan.}
+\observera{Likamedtecken i programmering betyder \textbf{INTE} samma sak som i matematik. Det kan se ut som att vi ställt upp en ekvation, 
+men vi använder = bara för att spara ett uträknat värde.}
+
+
+\subsection{Använda variabler}
+
+
+\begin{lstlisting}[title=Exempel på variabler]
+x = 5
+y = 10
+z = x + y
+print(z)
+\end{lstlisting}
+
+När detta program körs, kommer resultatet \texttt{15} att visas på skärmen eftersom \texttt{x} är 5 och \texttt{y} är 10.
+
+\begrepp{Variabel}{En plats i datorns minne där data, som tal eller text, lagras. Vi ger platsen ett namn för att enkelt kunna använda den i programmet.}
+
+\subsection{Datatyper}
+Data i Python kan ha olika typer, som bestämmer vad vi kan göra med den. 
+Några vanliga typer:\\
+- \texttt{int}: Heltal (till exempel \texttt{5})\\
+- \texttt{float}: Decimaltal (till exempel \texttt{3.14})\\
+- \texttt{str}: Text, även kallad sträng (till exempel \texttt{"Hej!"})\\
+
+\begin{lstlisting}[title=Exempel på olika datatyper]
+tal = 5           # int
+decimaltal = 3.14 # float
+text = "Hej!"     # str
+\end{lstlisting}
+
+Eftersom datorn bara ser 1:or och 0:or i minnet behöver den hålla reda på om det vi sparat
+är ett heltal eller en text. Vi kommer gå djupar kring datatyper senare, men nu vet du varför vi behöver citattecken när vi 
+skriver en text. 
+Datatyper är också förklaringen till varför \texttt{print(4/2)} blir 2.0 och inte 2. 
+Python gör nämligen om alla divisioner till float (decimaltal).
+
+
+\begrepp{Datatyp}{En typ av värde, exempelvis heltal (integer), eller textvärden (string)}
+\begrepp{Integer}{Variabler av datatypen integer (förkortat int) innehåller heltalsvärden}
+\begrepp{Float}{Variabler av datatypen float innehåller decimaltal}
+\begrepp{String}{Variabler av datatypen string (förkortat str) innehåller textvärden. På svenska säger vi också att datatypen är en sträng.}
+
+\subsection{Sekvensiell exekvering}
+När ett program körs, läses koden rad för rad, uppifrån och ned. 
+Detta kallas sekvensiell exekvering. 
+Ordningen på kod spelar alltså mycket stor roll!!!
+Här är ett exempel:
+
+\begin{lstlisting}[title=Ordning i koden spelar roll]
+x = 5
+print(x)
+x = 7
+print(x)
+\end{lstlisting}
+
+Resultatet blir först \texttt{5} och sedan \texttt{7}, eftersom värdet på \texttt{x} ändras innan den skrivs ut andra gången.
+
+\begrepp{Exekvering}{
+Exekvering betyder att man kör programmeringskod. 
+Det vill säga att datorn steg för steg går igenom koden och utför våra instruktioner.}
+
+\begin{minipage}{\linewidth}
+\begin{lstlisting}[title=Användning av samma variabel två gånger]
+x = 5
+print(x)
+x = x+2
+print(x)
+\end{lstlisting}
+\end{minipage}
+
+Detta program skriver också ut 5 och sen 7. 
+Det beror på att raden x=x+2 betyder att vi först räknar ut högersidan, 
+vilket blir 5+2 eftersom x, när programmet ska köra rad 3, har värdet 5. 
+Vi sätter sedan detta värde som nytt värde på variabeln x.
+Det går med andra ord bra att spara ett nytt värde i en variabel som beror på det gamla värdet.
+Det är också ganska vanligt att man vill göra just det, exempelvis för att öka en variabels värde med Ett, 
+vilket vi alltså kan åstadkomma genom \texttt{x=x+1}.
+
+\subsection{Strängkonkatenering}
+Om vi har sparat textvärden, det vill säga strängar, i våra variabler kan vi sätta ihop texterna med + tecknet.
+Detta kallas konkatenering.
+
+\begin{lstlisting}[title=Konkatenering av strängar]
+namn = "Kalle"
+efternamn = "Anka"
+hela = namn + efternamn
+print(hela)
+\end{lstlisting}
+\pythonoutput{Output}{KalleAnka}
+
+I programmet ser vi att + tecknet används också för texter för att konkatenera eller slå ihop dom. 
+Vi sparar resultatet i en ny variabel vi döpt till hela, som vi sedan skriver ut med \texttt{print(hela)}.
+Vi hade också kunnat addera textsträngarna direkt med \texttt{print("Kalle"+\string"Anka")}.
+
+\begrepp{Konkatenering}{Konkatenering av texter betyder att vi sätter ihop texterna direkt efter varandra. Konkatenering av texten \textbf{hej} och texten \textbf{då} blir \textbf{hejdå}.}
+
+\subsection{Övningar}
+\begin{exercise}
+Tilldela värdet 7 till en variabel \textbf{a} och värdet 5 till en variabel med namnet \textbf{b}.
+Skriv sen ut summan av dem.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+a = 7
+b = 3
+print(a + b)
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Deklarera en variabel \texttt{x} och tilldela den värdet \texttt{10}. Ändra sedan värdet på \texttt{x} till \texttt{20} och skriv ut det nya värdet.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+x = 10
+x = 20
+print(x)
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skapa en variabel med ditt namn och skriv ut följande med hjälp av variabeln: \texttt{Hej, [ditt namn]!}
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+namn = "Patrik"
+print("Hej, " + namn + "!")
+\end{lstlisting}
+\end{solution}
+
+\secToExRef{examples:variables}
+

@@ -1,0 +1,107 @@
+\section{Kodexempel: Slumptal med random}
+\label{examples:random}
+\exToSecRef{section:random}
+\subsection*{Modulimport och \texttt{randint}}
+
+\begin{lstlisting}[title=Exempel 1: Importera modulen \texttt{random}]
+# Vi måste importera modulen random innan vi kan använda dess funktioner
+import random
+
+# Generera ett heltal mellan 1 och 10
+slumptal = random.randint(1, 10)
+print("Ett slumptal mellan 1 och 10:", slumptal)
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 2: Generera flera slumptal]
+import random
+
+# Generera tre olika slumptal
+print("Första slumptalet:", random.randint(1, 10))
+print("Andra slumptalet:", random.randint(1, 10))
+print("Tredje slumptalet:", random.randint(1, 10))
+\end{lstlisting}
+
+\subsection*{\texttt{random.random()}}
+
+\begin{lstlisting}[title=Exempel 3: Generera ett flyttal mellan 0 och 1]
+import random
+
+# random.random() genererar ett flyttal mellan 0 och 1
+flyttal = random.random()
+print("Ett slumptal mellan 0 och 1:", flyttal)
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 4: Använd slumptal för simulering]
+import random
+
+# Simulera ett kast med en tärning, där 0.5 är gränsen för "framgång"
+slumptal = random.random()
+if slumptal > 0.5:
+    print("Framgång!")
+else:
+    print("Misslyckande.")
+\end{lstlisting}
+
+\subsection*{\texttt{random.choice()}}
+
+\begin{lstlisting}[title=Exempel 5: Välja ett slumpmässigt element från en lista]
+import random
+
+# En lista med möjliga alternativ
+alternativ = ["äpple", "banan", "körsbär", "druva"]
+
+# Välj ett slumpmässigt element från listan
+val = random.choice(alternativ)
+print("Det slumpmässiga valet är:", val)
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 6: Simulera ett tärningskast med \texttt{random.choice()}]
+import random
+
+# Definiera en lista med möjliga tärningssidor
+tärning = [1, 2, 3, 4, 5, 6]
+
+# Välj en slumpmässig sida
+kast = random.choice(tärning)
+print("Resultatet av tärningskastet är:", kast)
+\end{lstlisting}
+
+\subsection*{Fler funktioner i \texttt{random}}
+
+\begin{lstlisting}[title=Exempel 7: Slumpa om en lista med \texttt{random.shuffle()}]
+import random
+
+# En lista med tal
+lista = [1, 2, 3, 4, 5]
+
+# Blanda om listan slumpmässigt
+random.shuffle(lista)
+print("Den omblandade listan är:", lista)
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 8: Generera ett slumptal inom ett intervall med decimaler]
+import random
+
+# random.uniform() genererar ett slumptal med decimaler mellan 5 och 15
+slumptal = random.uniform(5, 15)
+print("Ett slumptal mellan 5 och 15:", slumptal)
+\end{lstlisting}
+
+\subsection*{Syntaxfel och vanliga misstag}
+
+\begin{lstlisting}[title=Exempel 9: Glöm inte att importera modulen!]
+# Fel: random är inte importerat
+slumptal = random.randint(1, 10)
+print(slumptal)
+# Lösning: Lägg till "import random" högst upp i programmet
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 10: Fel typ av argument till \texttt{randint()}]
+import random
+
+# Fel: randint() kräver två heltal som argument
+# slumptal = random.randint("1", "10")
+# Lösning: Skicka in heltal, inte strängar
+slumptal = random.randint(1, 10)
+print(slumptal)
+\end{lstlisting}

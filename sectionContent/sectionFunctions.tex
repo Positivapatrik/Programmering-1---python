@@ -1,0 +1,98 @@
+\section{Funktioner: Strukturera och Återanvänd Kod}
+\label{section:functions}
+
+Funktioner är en grundläggande del av programmering. De låter oss strukturera kod genom att dela upp den i mindre, hanterbara delar. Funktioner kan också återanvändas, vilket gör vårt arbete effektivare och vår kod lättare att förstå och underhålla.
+
+\subsection{Vad är en funktion?}
+En funktion är en bit kod som utför en specifik uppgift. 
+Vi definierar funktioner med nyckelordet \texttt{def} och ett namn, följt av eventuella parametrar inom parentes. 
+Funktionen kan köras genom att vi anropar dess namn.
+
+\begin{lstlisting}[title=En enkel funktion]
+def hälsa():
+    print("Hej! Välkommen till Python.")
+    
+hälsa()  # Anropa funktionen
+\end{lstlisting}
+
+\subsection{Parametrar och argument}
+Vi kan ge funktioner indata genom att använda parametrar. När vi anropar funktionen skickar vi värden, som kallas argument, till parametrarna.
+
+\begin{lstlisting}[title=Funktion med parametrar]
+def hälsa(namn):
+    print(f"Hej, {namn}! Välkommen till Python.")
+    
+hälsa("Alice")  # Output: Hej, Alice! Välkommen till Python.
+\end{lstlisting}
+
+\begrepp{Parameter}{En parameter är en plats för indata i en funktions definition.}
+\begrepp{Argument}{Ett argument är det faktiska värde vi skickar till en funktions parameter.}
+
+\subsection{Returvärden}
+En funktion kan också ge tillbaka ett värde till det ställe där den anropas. Detta görs med nyckelordet \texttt{return}.
+
+\begin{lstlisting}[title=Funktion med returvärde]
+def addera(a, b):
+    return a + b
+    
+resultat = addera(5, 7)
+print(resultat)  # Output: 12
+\end{lstlisting}
+
+\begrepp{Returvärde}{Ett returvärde är det värde som en funktion skickar tillbaka till anropsplatsen med hjälp av \texttt{return}.}
+
+\subsection{Main-funktionen}
+I större program är det vanligt att använda en \texttt{main}-funktion för att tydligt visa var programmet börjar. Här är ett exempel:
+
+\begin{lstlisting}[title=Ett program med en main-funktion]
+def hälsa():
+    print("Hej! Välkommen till Python.")
+    
+def main():
+    hälsa()
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+När vi använder \texttt{if \_\_name\_\_ == "\_\_main\_\_"}, ser Python till att bara köra \texttt{main()} om programmet körs direkt, inte om det importeras i ett annat program.
+
+\begrepp{Main-funktion}{En \texttt{main}-funktion fungerar som programmets startpunkt, vilket gör koden tydligare och mer strukturerad.}
+
+\subsection{Namespace: Variabler i funktioner}
+Varje funktion har sitt eget \textbf{namespace}, vilket innebär att variabler definierade i funktionen inte påverkar eller är kända utanför den. Här är ett exempel:
+
+\begin{lstlisting}[title=Namespace och variabler]
+def ändra_värde():
+    x = 10  # Lokal variabel
+    print(f"Inne i funktionen: {x}")
+    
+x = 5  # Global variabel
+ändra_värde()
+print(f"Utanför funktionen: {x}")
+\end{lstlisting}
+
+Output:
+\begin{verbatim}
+Inne i funktionen: 10
+Utanför funktionen: 5
+\end{verbatim}
+
+I detta exempel är variabeln \texttt{x} inne i funktionen skild från variabeln \texttt{x} utanför. Detta förhindrar att funktioner oavsiktligt ändrar värden i resten av programmet.
+
+\begrepp{Namespace}{Ett namespace är ett område där variabler och deras värden lagras. En funktions namespace är separat från resten av programmet.}
+
+\subsection{Övningar}
+\begin{exercise}
+Skriv en funktion \texttt{dubbla()} som tar ett tal som parameter och returnerar dess dubbla värde.
+\end{exercise}
+
+\begin{exercise}
+Skapa ett program med en \texttt{main}-funktion som anropar en funktion \texttt{hälsa(namn)} och skriver ut en personlig hälsning.
+\end{exercise}
+
+\begin{exercise}
+Experimentera med namespace genom att skapa en funktion som definierar och ändrar en variabel. Kontrollera om förändringen påverkar en variabel med samma namn utanför funktionen.
+\end{exercise}
+
+\secToExRef{examples:functions}

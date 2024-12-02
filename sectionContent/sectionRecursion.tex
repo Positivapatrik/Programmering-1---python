@@ -1,0 +1,91 @@
+\section{Rekursion}
+\label{section:recursion}
+Rekursion är en viktig programmeringsteknik där en funktion anropar sig själv för att lösa ett problem. Det kan vara användbart när ett problem kan delas upp i mindre, likartade delproblem.
+
+\subsection{Hur fungerar rekursion?}
+En rekursiv funktion måste alltid ha:
+\begin{enumerate}
+    \item \textbf{Basfall:} En villkorssats som avslutar rekursionen när ett visst kriterium uppfylls.
+    \item \textbf{Rekursivt fall:} Ett anrop till sig själv, med ett argument som gradvis närmar sig basfallet.
+\end{enumerate}
+
+\subsection{Exempel: Faktorial}
+Faktorial av ett heltal \( n \) definieras som:
+\[
+n! = n \times (n-1) \times (n-2) \times \dots \times 1
+\]
+Faktorial av 0 är definierat som 1 (\( 0! = 1 \)).
+
+Med rekursion kan vi definiera detta som:
+\[
+n! = 
+\begin{cases} 
+1 & \text{om } n = 0 \\
+n \times (n-1)! & \text{om } n > 0
+\end{cases}
+\]
+
+\subsubsection*{Kodexempel}
+\begin{lstlisting}[title=Rekursiv faktorialfunktion]
+def faktorial(n):
+    if n == 0:  # Basfall
+        return 1
+    else:       # Rekursivt fall
+        return n * faktorial(n - 1)
+
+# Exempel
+print(faktorial(5))  # Output: 120
+\end{lstlisting}
+
+\begin{rconceptbox}{Rekursiv funktion}{En funktion som anropar sig själv. Den använder basfall för att avsluta anropen.}
+\end{rconceptbox}
+
+\subsection{Exempel: Rekursiv binär sökning}
+Binär sökning kan också implementeras rekursivt. Istället för att använda en loop delar den rekursiva versionen listan i mindre delar tills det sökta värdet hittas eller listan är tom.
+
+\subsubsection*{Kodexempel}
+\begin{lstlisting}[title=Rekursiv binär sökning]
+def rekursiv_binar_sokning(lista, mål, vänster, höger):
+    if vänster > höger:  # Basfall: Målet finns inte
+        return -1
+    mitten = (vänster + höger) // 2
+    if lista[mitten] == mål:  # Basfall: Målet hittas
+        return mitten
+    elif lista[mitten] < mål:
+        return rekursiv_binar_sokning(lista, mål, mitten + 1, höger)
+    else:
+        return rekursiv_binar_sokning(lista, mål, vänster, mitten - 1)
+
+# Exempel
+data = [10, 20, 30, 40, 50]
+print(rekursiv_binar_sokning(data, 30, 0, len(data) - 1))  # Output: 2
+\end{lstlisting}
+
+\subsection{Rekursion jämfört med iteration}
+Rekursion och iteration (loopar) kan ofta lösa samma problem. Här är några skillnader:
+\begin{itemize}
+    \item \textbf{Rekursion:} Kan vara enklare och mer intuitiv för vissa problem, t.ex. träd eller grafproblem.
+    \item \textbf{Iteration:} Mer minneseffektiv, eftersom rekursion kräver att varje anrop lagras på ett stackminne.
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Fördelar med rekursion} & \textbf{Nackdelar med rekursion} \\ \hline
+Intuitiv för vissa problem      & Kräver mer minne                 \\ \hline
+Kortare kod i vissa fall        & Risk för stack overflow          \\ \hline
+\end{tabular}
+\caption{Jämförelse av rekursionens fördelar och nackdelar.}
+\end{table}
+
+\subsection{Övningar}
+\begin{exercise}
+Skriv en rekursiv funktion som beräknar summan av alla heltal från 1 till \( n \).
+\end{exercise}
+
+\begin{exercise}
+Implementera binär sökning rekursivt och använd den för att hitta värdet 45 i listan \texttt{[5, 15, 25, 35, 45, 55]}.
+\end{exercise}
+
+\secToExRef{examples:recursion}

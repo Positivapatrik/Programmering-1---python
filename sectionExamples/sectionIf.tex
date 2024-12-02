@@ -1,0 +1,141 @@
+\section{Kodexempel: If-satser (Beslutsfattande)}
+\label{examples:if}
+\exToSecRef{section:if}
+\subsection*{Grunderna för if-satser}
+
+\begin{lstlisting}[title=Exempel 1: En enkel if-sats]
+x = 10
+if x > 5:
+    print("x är större än 5")
+# Output: x är större än 5
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 2: Kontrollera likhet]
+y = 8
+if y == 8:
+    print("y är lika med 8")
+# Output: y är lika med 8
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 3: Använda else]
+age = 17
+if age >= 18:
+    print("Du är vuxen.")
+else:
+    print("Du är inte vuxen.")
+# Output: Du är inte vuxen.
+\end{lstlisting}
+
+\subsection*{elif och flera villkor}
+
+\begin{lstlisting}[title=Exempel 4: Använda elif för fler alternativ]
+temperature = 15
+if temperature > 25:
+    print("Det är varmt.")
+elif temperature > 10:
+    print("Det är svalt.")
+else:
+    print("Det är kallt.")
+# Output: Det är svalt.
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 5: If-elif-else med gränsvärden]
+score = 85
+if score >= 90:
+    print("Betyg: A")
+elif score >= 75:
+    print("Betyg: B")
+elif score >= 60:
+    print("Betyg: C")
+else:
+    print("Betyg: F")
+# Output: Betyg: B
+\end{lstlisting}
+
+\subsection*{Indentering är viktigt}
+
+\begin{lstlisting}[title=Exempel 6: Felaktig indentering]
+x = 10
+if x > 5:
+print("x är större än 5")  # Ger ett IndentationError
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 7: Korrekt indentering]
+x = 10
+if x > 5:
+    print("x är större än 5")  # Rätt indentering
+# Output: x är större än 5
+\end{lstlisting}
+
+\subsection*{Jämförelseoperationer}
+
+\begin{lstlisting}[title=Exempel 8: Kontrollera större än eller lika med]
+x = 12
+if x >= 10:
+    print("x är minst 10")
+# Output: x är minst 10
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 9: Kontrollera mindre än]
+y = 7
+if y < 10:
+    print("y är mindre än 10")
+# Output: y är mindre än 10
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 10: Kontrollera olika värden]
+z = 15
+if z != 20:
+    print("z är inte 20")
+# Output: z är inte 20
+\end{lstlisting}
+
+\subsection*{Blandade exempel}
+
+\begin{lstlisting}[title=Exempel 11: Använda if för att hitta det största värdet]
+a = 12
+b = 9
+if a > b:
+    print("a är större än b")
+else:
+    print("b är större än eller lika med a")
+# Output: a är större än b
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 12: If-sats med variabler i flera steg]
+balance = 100
+withdrawal = 120
+if withdrawal <= balance:
+    print("Uttaget är godkänt")
+else:
+    print("Otillräckligt saldo")
+# Output: Otillräckligt saldo
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 13: Kontrollera om ett tal är jämnt]
+number = 6
+if number % 2 == 0:
+    print("Talet är jämnt")
+else:
+    print("Talet är udda")
+# Output: Talet är jämnt
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 14: If-sats för flera steg av diskontering]
+price = 200
+if price > 100:
+    discount = 20
+else:
+    discount = 10
+print("Rabatten är:", discount, "kr")
+# Output: Rabatten är: 20 kr
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 15: Kontrollera intervall med if-satser]
+x = 15
+if 10 <= x <= 20:
+    print("x är inom intervallet 10 till 20")
+else:
+    print("x är utanför intervallet")
+# Output: x är inom intervallet 10 till 20
+\end{lstlisting}

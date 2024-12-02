@@ -1,0 +1,95 @@
+\section{Kodexempel: Rekursion}
+\label{examples:recursion}
+\exToSecRef{section:recursion}
+\subsection*{Exempel 1: Rekursionens grunder}
+
+En rekursiv funktion anropar sig själv för att lösa mindre delar av ett problem. En rekursiv funktion måste innehålla:
+- Ett \textbf{basfall} som avslutar rekursionen.
+- Ett \textbf{rekursivt fall} som löser problemet genom att anropa sig själv.
+
+\textbf{Exempel på rekursiv nedräkning:}
+\begin{lstlisting}[title=Nedräkning med rekursion]
+def countdown(n):
+    if n == 0:  # Basfall
+        print("Klar!")
+    else:  # Rekursivt fall
+        print(n)
+        countdown(n - 1)
+
+countdown(5)
+# Output: 5 4 3 2 1 Klar!
+\end{lstlisting}
+
+\subsection*{Exempel 2: Faktorial med rekursion}
+
+Faktorial av ett tal \( n \) definieras som \( n! = n \cdot (n-1) \cdot (n-2) \cdots 1 \).
+
+\textbf{Rekursiv definition:}
+\[
+\text{faktorial}(n) = 
+\begin{cases} 
+1 & \text{om } n = 0 \\
+n \cdot \text{faktorial}(n-1) & \text{om } n > 0
+\end{cases}
+\]
+
+\textbf{Python-kod:}
+\begin{lstlisting}[title=Faktorial med rekursion]
+def faktorial(n):
+    if n == 0:  # Basfall
+        return 1
+    else:  # Rekursivt fall
+        return n * faktorial(n - 1)
+
+print(faktorial(5))  # Output: 120
+\end{lstlisting}
+
+\subsection*{Exempel 3: Binärsökning med rekursion}
+
+Binärsökning hittar ett element i en sorterad lista genom att dela sökområdet i två delar vid varje steg.
+
+\textbf{Rekursiv algoritm:}
+\begin{verbatim}
+START
+  Om lista är tom: returnera False
+  Beräkna mittenindex
+  Om nyckel = mitten: returnera True
+  Om nyckel < mitten: sök i vänstra halvan
+  Om nyckel > mitten: sök i högra halvan
+END
+\end{verbatim}
+
+\textbf{Python-kod:}
+\begin{lstlisting}[title=Binärsökning med rekursion]
+def binsok(lista, nyckel, vänster, höger):
+    if vänster > höger:  # Basfall
+        return False
+
+    mitten = (vänster + höger) // 2
+
+    if lista[mitten] == nyckel:  # Hittat nyckeln
+        return True
+    elif nyckel < lista[mitten]:  # Sök i vänstra halvan
+        return binsok(lista, nyckel, vänster, mitten - 1)
+    else:  # Sök i högra halvan
+        return binsok(lista, nyckel, mitten + 1, höger)
+
+# Testa med en sorterad lista
+sorterad_lista = [1, 3, 5, 7, 9, 11]
+nyckel = 7
+print(binsok(sorterad_lista, nyckel, 0, len(sorterad_lista) - 1))  # Output: True
+\end{lstlisting}
+
+\subsection*{Exempel 4: Rekursivt fibonaccital}
+
+Ett exempel som visar rekursiv ineffektivitet:
+\begin{lstlisting}[title=Fibonaccital med rekursion]
+def fibonacci(n):
+    if n <= 1:  # Basfall
+        return n
+    else:  # Rekursivt fall
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(6))  # Output: 8
+\end{lstlisting}
+\textbf{Observera:} Rekursiva algoritmer som denna kan vara ineffektiva och bör förbättras med memoization eller iteration för stora \( n \).

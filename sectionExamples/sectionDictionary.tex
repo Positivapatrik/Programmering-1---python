@@ -1,0 +1,107 @@
+\section{Kodexempel: Dictionaries}
+\label{examples:dictionary}
+\exToSecRef{section:dictionary}
+\subsection*{Skapa och använda dictionaries}
+
+\begin{lstlisting}[title=Exempel 1: Skapa en dictionary]
+# Skapa en dictionary för att lagra personers ålder
+person_ålder = {
+    "Anna": 25,
+    "Björn": 32,
+    "Cecilia": 19
+}
+
+# Åtkomst via nycklar
+print("Annas ålder är:", person_ålder["Anna"])
+# Output: Annas ålder är: 25
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 2: Åtkomst med \texttt{get()}]
+# Använd get() för att undvika fel om nyckeln saknas
+print(person_ålder.get("Daniel", "Nyckeln finns inte"))
+# Output: Nyckeln finns inte
+\end{lstlisting}
+
+\subsection*{Modifiera dictionaries}
+
+\begin{lstlisting}[title=Exempel 3: Lägga till en ny nyckel och värde]
+# Lägg till en ny person
+person_ålder["Daniel"] = 28
+print("Uppdaterad dictionary:", person_ålder)
+# Output: {'Anna': 25, 'Björn': 32, 'Cecilia': 19, 'Daniel': 28}
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 4: Uppdatera ett värde]
+# Ändra åldern för Anna
+person_ålder["Anna"] = 26
+print("Annas nya ålder är:", person_ålder["Anna"])
+# Output: Annas nya ålder är: 26
+\end{lstlisting}
+
+\subsection*{Ta bort från dictionaries}
+
+\begin{lstlisting}[title=Exempel 5: Ta bort en nyckel med \texttt{pop()}]
+# Ta bort Björn från dictionaryn
+borttagen_ålder = person_ålder.pop("Björn")
+print("Borttagen:", borttagen_ålder)
+print("Uppdaterad dictionary:", person_ålder)
+# Output: 
+# Borttagen: 32
+# Uppdaterad dictionary: {'Anna': 26, 'Cecilia': 19, 'Daniel': 28}
+\end{lstlisting}
+
+\subsection*{Iterera över dictionaries}
+
+\begin{lstlisting}[title=Exempel 6: Iterera över nycklar]
+# Skriva ut alla namn (nycklar)
+for namn in person_ålder:
+    print("Namn:", namn)
+# Output:
+# Namn: Anna
+# Namn: Cecilia
+# Namn: Daniel
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 7: Iterera över nycklar och värden]
+# Skriva ut både namn och ålder
+for namn, ålder in person_ålder.items():
+    print(namn, "är", ålder, "år gammal")
+# Output:
+# Anna är 26 år gammal
+# Cecilia är 19 år gammal
+# Daniel är 28 år gammal
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 8: Iterera över värden]
+# Skriva ut bara åldrar
+for ålder in person_ålder.values():
+    print("Ålder:", ålder)
+# Output:
+# Ålder: 26
+# Ålder: 19
+# Ålder: 28
+\end{lstlisting}
+
+\subsection*{Praktiska användningar}
+
+\begin{lstlisting}[title=Exempel 9: Kontrollera om en nyckel finns]
+# Kontrollera om en person finns
+if "Anna" in person_ålder:
+    print("Anna finns i dictionaryn")
+# Output: Anna finns i dictionaryn
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 10: Räkna förekomster med en dictionary]
+# Räkna antalet förekomster av varje bokstav i en sträng
+bokstav_räkning = {}
+text = "programmering"
+
+for bokstav in text:
+    if bokstav in bokstav_räkning:
+        bokstav_räkning[bokstav] += 1
+    else:
+        bokstav_räkning[bokstav] = 1
+
+print("Bokstavsräkning:", bokstav_räkning)
+# Output: Bokstavsräkning: {'p': 1, 'r': 3, 'o': 1, 'g': 2, 'a': 1, 'm': 2, 'e': 1, 'i': 1, 'n': 1}
+\end{lstlisting}

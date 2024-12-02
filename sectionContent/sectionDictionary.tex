@@ -1,0 +1,169 @@
+\section{Dictionary: En samling av nyckel-värde-par}
+\label{section:dictionary}
+En \textbf{dictionary} (eller ''ordbok'') i Python är en datastruktur som används för att lagra data i form av nyckel-värde-par. Detta innebär att varje värde i en dictionary är kopplat till en unik nyckel, som används för att referera till värdet. Detta gör dictionaries särskilt användbara när vi behöver hantera data som har en logisk koppling, till exempel namn och telefonnummer eller ord och deras definitioner.
+
+\subsection{Skapa en dictionary}
+En dictionary skapas genom att använda klamrar \texttt{\{\}} och separera nycklar och värden med kolon (\texttt{:}). Här är ett exempel:
+
+\begin{lstlisting}[title=Skapa en dictionary]
+# Skapa en dictionary med information om en person
+person = {
+    "namn": "Alice",
+    "ålder": 25,
+    "stad": "Stockholm"
+}
+\end{lstlisting}
+
+\subsection{Åtkomst till värden}
+För att hämta ett värde från en dictionary använder vi nyckeln inom hakparenteser \texttt{[]}:
+
+\begin{lstlisting}[title=Hämta värden från en dictionary]
+# Hämta värdet för nyckeln "namn"
+print(person["namn"])  # Output: Alice
+\end{lstlisting}
+
+Om vi försöker använda en nyckel som inte finns i dictionaryn, kommer Python att generera ett \texttt{KeyError}. För att undvika detta kan vi använda metoden \texttt{get()}, som låter oss ange ett standardvärde:
+
+\begin{lstlisting}[title=Använda get-metoden]
+# Försök hämta en nyckel som inte finns
+print(person.get("jobb", "Okänd"))  # Output: Okänd
+\end{lstlisting}
+
+\subsection{Lägga till och ändra värden}
+Vi kan lägga till nya nyckel-värde-par eller ändra existerande värden:
+
+\begin{lstlisting}[title=Lägga till och ändra värden]
+# Lägg till en ny nyckel "jobb"
+person["jobb"] = "Programmerare"
+
+# Ändra värdet för nyckeln "stad"
+person["stad"] = "Göteborg"
+
+print(person)
+\end{lstlisting}
+
+\subsection{Ta bort värden}
+Vi kan använda pop() för att ta bort ett nyckel-värde-par:
+
+\begin{lstlisting}[title=Ta bort värden från en dictionary]
+# Ta bort nyckeln "ålder"
+person.pop("ålder")
+
+print(person)
+\end{lstlisting}
+
+\subsection{Loopa genom en dictionary}
+Vi kan loopa igenom en dictionary för att få åtkomst till dess nycklar och värden:
+
+\begin{lstlisting}[title=Loop genom en dictionary]
+# Loopa genom nycklar och värden
+for nyckel, värde in person.items():
+    print(f"{nyckel}: {värde}")
+\end{lstlisting}
+
+\subsection{Exempel på användning}
+Här är ett exempel på hur dictionaries kan användas för att lagra och analysera data:
+
+\begin{lstlisting}[title=Exempel: Räkna antalet bokstäver i en text]
+# Räkna antalet förekomster av varje bokstav
+text = "programmering"
+bokstavsfrekvens = {}
+
+for bokstav in text:
+    bokstavsfrekvens[bokstav] = bokstavsfrekvens.get(bokstav, 0) + 1
+
+print(bokstavsfrekvens)
+\end{lstlisting}
+
+\pythonoutput{Output}{
+\texttt{\{}'p': 1, 'r': 3, 'o': 1, 'g': 2, 'a': 1, 'm': 2, 'e': 1, 'i': 1, 'n': 1\texttt{\}}
+}
+
+\subsection{Övningar}
+\begin{exercise}
+Skapa en dictionary som innehåller tre städer och deras befolkning. Skriv ut befolkningen för en av städerna.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+# Skapa en dictionary med städer och befolkning
+stad_befolkning = {
+    "Stockholm": 975551,
+    "Göteborg": 583056,
+    "Malmö": 347949
+}
+
+# Skriv ut befolkningen för en stad
+print("Befolkning i Stockholm:", stad_befolkning["Stockholm"])
+\end{lstlisting}
+Output:
+\pythonoutput{}{
+Befolkning i Stockholm: 975551
+}
+\end{solution}
+
+\begin{exercise}
+Skriv ett program som använder en dictionary för att lagra elevbetyg. Programmet ska kunna lägga till nya elever och deras betyg samt visa alla sparade betyg.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+# Skapa en tom dictionary för elevbetyg
+elev_betyg = {}
+
+# Lägg till nya elever och deras betyg
+elev_betyg["Anna"] = "A"
+elev_betyg["Björn"] = "B"
+elev_betyg["Cecilia"] = "C"
+
+# Visa alla elever och deras betyg
+print("Elevbetyg:")
+for elev, betyg i elev_betyg.items():
+    print(f"{elev}: {betyg}")
+\end{lstlisting}
+Output:
+\pythonoutput{}{
+Elevbetyg: \\
+Anna: A \\
+Björn: B \\
+Cecilia: C
+}
+\end{solution}
+\begin{exercise}
+Skapa ett program som räknar hur många gånger varje bokstav förekommer i en given mening. 
+Implementera detta genom att använda en \texttt{for}-loop och metoden \texttt{get()}.
+
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+# Mening att analysera
+mening = "Detta är en enkel mening"
+
+# Skapa en tom dictionary för att räkna bokstäver
+bokstav_räknare = {}
+
+# Gå igenom varje bokstav i den rensade meningen
+for bokstav in rensad_mening:
+    # Använd get() för att öka antalet eller sätta det till 1 om bokstaven är ny
+    bokstav_räknare[bokstav] = bokstav_räknare.get(bokstav, 0) + 1
+
+# Visa resultatet
+print("Antal bokstäver:")
+for bokstav, antal in bokstav_räknare.items():
+    print(f"{bokstav}: {antal}")
+\end{lstlisting}
+Output:
+\pythonoutput{}{
+Antal bokstäver: \\
+d: 1 \\
+e: 7 \\
+t: 4 \\
+a: 2 \\
+ä: 1 \\
+n: 4 \\
+k: 1 \\
+l: 1 \\
+m: 1 \\
+g: 1
+}
+\end{solution}
+
+\secToExRef{examples:dictionary}

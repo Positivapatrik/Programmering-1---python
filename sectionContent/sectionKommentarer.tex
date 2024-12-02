@@ -1,0 +1,133 @@
+
+\section{Kodkommentarer}
+\label{section:comments}
+Kodkommentarer är ett viktigt verktyg för att göra din kod lättare att förstå för både dig själv och andra som läser den. Kommentarer används för att förklara vad koden gör och varför den gör det, utan att påverka programmets körning. Kommentarer kan också användas för att tillfälligt inaktivera kod under utveckling eller felsökning.
+
+\subsection{Enkla kommentarer}
+I Python skrivs kommentarer med ett \texttt{\#}-tecken i början av raden. Allt efter \# på samma rad ignoreras av Python och påverkar inte programmets exekvering. Här är ett exempel:
+
+\begin{lstlisting}[title=Exempel på en enkel kommentar]
+# Detta är en kommentar
+print("Hello, world!")  # Detta är också en kommentar
+\end{lstlisting}
+
+I exemplet ovan används kommentarer för att förklara kodraderna. Kommentarerna är bara för människor att läsa och påverkar inte hur programmet fungerar.
+
+\begrepp{Kommentar}{En kommentar är en rad i koden som inte påverkar körningen av programmet. Den används för att förklara vad koden gör.}
+
+\subsection{Kommentarer för att förklara kod}
+Kommentarer hjälper till att förklara mer komplex kod och gör det lättare för andra att förstå vad du har gjort. Här är ett exempel på hur kommentarer kan användas för att beskriva vad en kodbit gör:
+
+\begin{lstlisting}[title=Kommentarer för att förklara kod]
+# Skapa en variabel för användarens ålder
+alder = 25
+
+# Om användaren är 18 år eller äldre
+if alder >= 18:
+    print("Du är vuxen")
+else:
+    print("Du är minderårig")
+\end{lstlisting}
+
+I detta exempel förklarar kommentarerna vad varje del av koden gör, vilket gör det lättare att förstå syftet med varje kodrad.
+
+\subsection{Multiradskommentarer}
+Python har inte en specifik syntax för multiradskommentarer, men det finns två sätt att skriva kommentarer på flera rader. Den ena metoden är att använda flera \#-tecken, en per rad:
+
+\begin{lstlisting}[title=Exempel på multiradskommentarer med \#]
+# Detta är en kommentar
+# som sträcker sig över
+# flera rader
+\end{lstlisting}
+
+En annan metod för att skriva kommentarer på flera rader är att använda en "trippel-citat" (\texttt{''' eller """}):
+
+\begin{lstlisting}[title=Exempel på multiradskommentarer med trippel-citat]
+"""
+Det här är en kommentar
+som kan sträcka sig
+över flera rader.
+"""
+\end{lstlisting}
+
+Observera att trippel-citat inte tekniskt sett är kommentarer, utan strängar som inte används. De används ofta för dokumentation, men fungerar också bra som multiradskommentarer under utveckling.
+
+\subsection{Bra praxis för kommentarer}
+Även om kommentarer är bra, bör du undvika att kommentera uppenbar kod. Kommentera endast när det behövs för att förklara varför något görs, särskilt om koden är komplex eller otydlig.
+
+\begin{itemize}
+    \item Kommentera inte varje rad kod. Förklara varför koden gör något, inte vad den gör om det är uppenbart.
+    \item Skriv kortfattat men tydligt. Kommentarer ska vara lätta att förstå på första läsningen.
+    \item Använd kommentarer för att förklara logik som kan vara svår att förstå eller som har särskild betydelse.
+\end{itemize}
+
+\subsection{Alternativ användning av kodkommentarer}
+Två alternativa användningsssätt för kodkommentarer är under felsökning, eller för att markera saker som du som programmerare ska programmera senare (En så kallad \textbf{ToDo}).
+
+\begin{lstlisting}[title=ToDo]
+print("Välkommen till frågesportsspelet")
+print("Vad heter Sveriges huvudstad?")
+svar = input()
+#TODO Gör om svaret till bara små bokstäver
+if svar == "stockholm":
+  print("Grattis")
+else:
+  print("Tyvärr fel")
+\end{lstlisting}
+
+I programmet har vi skrivit en \texttt{\#TODO} kommentar vilket används för att komma ihåg saker som behöver programmeras framöver.
+En TODO-kommentar skiljer sig inte från en vanlig kommentar utan är bara en vanligt förekommande användning av kommentarer hos programmerare.
+
+\begin{lstlisting}[title=Felsökning genom kodkommentarer]
+print("Välkommen till frågesportsspelet")
+print("Vad heter Sveriges huvudstad?")
+svar = input()
+#svar.Lower()
+if svar == "stockholm":
+  print("Grattis")
+else:
+  print("Tyvärr fel")
+\end{lstlisting}
+
+I programmet ovan har en kommentar används för att tillfälligt inaktivera en rad kod som verkar generera ett fel när vi kör programmet. 
+Eftersom vi satt ett \texttt{\#} tecken på raden kör python den inte.
+Genom att kommentera flera rader kan vi i ett avancerat program lista ut var något går fel. 
+Det är generellt inte rekommenderat då det finns bättre sätt att felsöka program, men eftersom metoden 
+är så pass vanligt förekommande är det något man bör känna till. 
+För enklare program kan det också gå snabbast att göra på det viset.
+Programmet blir korrekt om vi ändrar svar.Lower() till svar.lower()
+
+\subsection{Övningar}
+\begin{exercise}
+Skriv ett program som skriver ut användarens namn och ålder. Lägg till kommentarer för att förklara varje steg i programmet.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+# Fråga användaren om deras namn
+namn = input("Vad heter du? ")
+
+# Fråga användaren om deras ålder
+alder = input("Hur gammal är du? ")
+
+# Skriv ut ett meddelande med namn och ålder
+print("Hej, " + namn + "! Du är " + alder + " år gammal.")
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Lägg till kommentarer i ett program som kontrollerar om ett tal är jämnt eller udda. Kommentera varje steg för att förklara vad som händer.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+# Fråga användaren om ett tal
+tal = int(input("Skriv ett tal: "))
+
+# Kontrollera om talet är jämnt eller udda
+if tal % 2 == 0:
+    print("Talet är jämnt.")
+else:
+    print("Talet är udda.")
+\end{lstlisting}
+\end{solution}
+
+\secToExRef{examples:comments}

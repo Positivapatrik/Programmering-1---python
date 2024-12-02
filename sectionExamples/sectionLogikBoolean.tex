@@ -1,0 +1,112 @@
+\section{Kodexempel: Logiska uttryck och booleanska värden}
+\label{examples:boolean}
+\exToSecRef{section:boolean}
+\subsection*{Datatypen \texttt{bool}}
+
+\begin{lstlisting}[title=Exempel 1: Sanna och falska värden]
+# Booleanska värden är antingen True eller False
+a = True
+b = False
+print("a är:", a)
+print("b är:", b)
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 2: Booleanska värden från jämförelser]
+# Jämförelser returnerar ett booleskt värde
+print(5 > 3)   # True
+print(10 < 7)  # False
+print(3 == 3)  # True
+print(4 != 5)  # True
+\end{lstlisting}
+
+\subsection*{Logiska operatorer: and, or, not}
+
+\begin{lstlisting}[title=Exempel 3: Använda \texttt{and}]
+# and returnerar True om båda villkoren är sanna
+print(True and True)    # True
+print(True and False)   # False
+print(5 > 3 and 2 < 4)  # True
+print(5 > 3 and 2 > 4)  # False
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 4: Använda \texttt{or}]
+# or returnerar True om minst ett villkor är sant
+print(True or False)    # True
+print(False or False)   # False
+print(5 > 3 or 2 > 4)   # True
+print(10 < 7 or 1 == 1) # True
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 5: Använda \texttt{not}]
+# not inverterar ett booleskt värde
+print(not True)   # False
+print(not False)  # True
+print(not (5 > 3)) # False
+\end{lstlisting}
+
+\subsection*{Kombination av logiska uttryck}
+
+\begin{lstlisting}[title=Exempel 6: Kombinera and\, or och not]
+# Kombinera flera logiska operatorer
+x = 10
+y = 5
+print((x > y) and (y > 2))    # True
+print((x > y) or (y < 2))     # True
+print(not (x == y))           # True
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 7: Operatorns prioritet]
+# not har högre prioritet än and/or
+print(not True and False)  # False
+print(not (True and False)) # True
+print(True or not False)    # True
+print((True or False) and not False) # True
+\end{lstlisting}
+
+\subsection*{Vanliga misstag}
+
+\begin{lstlisting}[title=Exempel 8: Glöm inte parenteser vid komplexa uttryck]
+x = 10
+y = 5
+
+# Fel: operatorprioritet ger oväntat resultat
+print(not x > y and y < 2)  # Detta är False
+
+# Rätt: använd parenteser för tydlighet
+print((not (x > y)) and (y < 2))  # Detta är True
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 9: Jämför inte direkt med \texttt{True}/\texttt{False}]
+x = (5 > 3)
+
+# Onödigt sätt
+if x == True:
+    print("x är sant!")
+
+# Bättre sätt
+if x:
+    print("x är sant!")
+\end{lstlisting}
+
+\subsection*{Exempel i praktisk användning}
+
+\begin{lstlisting}[title=Exempel 10: Kontrollera tillgång till system]
+# Villkor: Användaren måste vara inloggad och ha adminrättigheter
+inloggad = True
+admin = False
+
+if inloggad and admin:
+    print("Välkommen, admin!")
+else:
+    print("Åtkomst nekad.")
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 11: Kontrollera om ett tal är i intervall]
+# Kontrollera om ett tal är mellan 10 och 20
+tal = 15
+
+if tal >= 10 and tal <= 20:
+    print("Talet är inom intervallet.")
+else:
+    print("Talet är utanför intervallet.")
+\end{lstlisting}

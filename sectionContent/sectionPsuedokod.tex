@@ -1,0 +1,92 @@
+\section{Pseudokod}
+\label{section:psuedocode}
+Pseudokod är en metod för att beskriva algoritmer på ett sätt som är lätt att läsa och förstå, utan att behöva använda den exakta syntaxen i ett programmeringsspråk. Det fungerar som en mellanliggande representation som hjälper oss att planera och strukturera vår kod innan vi implementerar den.
+
+\subsection{Varför använda pseudokod?}
+Pseudokod är användbart eftersom det:
+\begin{itemize}
+    \item Hjälper till att fokusera på logiken i en algoritm, utan att fastna i språkspecifik syntax.
+    \item Är enkelt att läsa och förstå, även för personer som inte är programmerare.
+    \item Underlättar planeringen av mer komplexa program.
+\end{itemize}
+
+\subsection{Hur skriver man pseudokod?}
+Det finns inga fasta regler för pseudokod, men här är några riktlinjer:
+\begin{itemize}
+    \item Använd beskrivande namn för variabler och steg.
+    \item Håll det kortfattat och tydligt.
+    \item Strukturera koden med indragningar för att visa block som hör ihop.
+    \item Använd enkla termer som "LOOP", "IF", och "ELSE".
+\end{itemize}
+
+\subsection{Exempel: Summera en lista}
+Låt oss skriva pseudokod för att summera alla värden i en lista.
+
+\textbf{Pseudokod:}
+\begin{verbatim}
+START
+SET summa TO 0
+FOR varje element i listan:
+    ADD element TO summa
+END FOR
+PRINT summa
+END
+\end{verbatim}
+
+\textbf{Python-implementation:}
+\begin{lstlisting}[title=Summera en lista]
+lista = [1, 2, 3, 4, 5]
+summa = 0
+for element in lista:
+    summa += element
+print(summa)  # Output: 15
+\end{lstlisting}
+
+\subsection{Exempel: Hitta det största talet i en lista}
+Här är ett exempel på pseudokod för att hitta det största talet i en lista.
+
+\textbf{Pseudokod:}
+\begin{verbatim}
+START
+SET största TO första elementet i listan
+FOR varje element i listan:
+    IF element > största:
+        SET största TO element
+    END IF
+END FOR
+PRINT största
+END
+\end{verbatim}
+
+\textbf{Python-implementation:}
+\begin{lstlisting}[title=Hitta största talet i en lista]
+lista = [10, 20, 5, 30, 15]
+största = lista[0]
+for element in lista:
+    if element > största:
+        största = element
+print(största)  # Output: 30
+\end{lstlisting}
+
+\subsection{Övningar}
+\begin{exercise}
+Skriv pseudokod för att räkna hur många jämna tal som finns i en lista.
+\end{exercise}
+
+\begin{exercise}
+Implementera följande pseudokod i Python: \\
+\texttt{START \\
+SET antal TO 0 \\
+FOR varje element i listan: \\
+    IF element är större än 10: \\
+        ADD 1 TO antal \\
+    END IF \\
+END FOR \\
+PRINT antal \\
+END}
+\end{exercise}
+
+\begin{rconceptbox}{Pseudokod}{Ett sätt att beskriva algoritmer med ord och strukturer som påminner om kod, men utan att följa strikt syntax.}
+\end{rconceptbox}
+
+\secToExRef{examples:psuedocode}

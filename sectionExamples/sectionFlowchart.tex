@@ -1,0 +1,212 @@
+\section{Kodexempel: Flödesdiagram}
+\label{examples:flowchart}
+\exToSecRef{section:flowchart}
+\subsection*{Exempel 1: Enkel sekvens}
+
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} p{0.45\linewidth} | p{0.5\linewidth}}
+\textbf{Flödesdiagram:} & \textbf{Python-kod:} \\
+\hline
+
+% Flödesdiagram
+\raisebox{-\totalheight}{%
+\begin{tikzpicture}[node distance=2cm]
+\node (start) [startstop] {Start};
+\node (input) [io, below of=start] {Läs tal};
+\node (process) [process, below of=input] {Addera 5};
+\node (output) [io, below of=process] {Skriv resultat};
+\node (stop) [startstop, below of=output] {Stop};
+
+\draw [arrow] (start) -- (input);
+\draw [arrow] (input) -- (process);
+\draw [arrow] (process) -- (output);
+\draw [arrow] (output) -- (stop);
+\end{tikzpicture}
+}
+&
+
+% Python-kod
+\raggedright
+\begin{lstlisting}[xleftmargin=1.5em]
+# Läs ett tal från användaren
+nummer = int(input("Ange ett tal: "))
+
+# Lägg till 5
+resultat = nummer + 5
+
+# Skriv ut resultatet
+print("Resultatet är:", resultat)
+\end{lstlisting}
+\vspace{0.5em}
+Enkelt program som läser in ett tal från användaren, adderar 5 till det, och skriver ut resultatet igen.
+\\
+\end{tabular*}
+
+
+\subsection*{Exempel 2: Beslutsstruktur}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} p{0.45\linewidth} | p{0.5\linewidth}}
+\textbf{Flödesdiagram:} & \textbf{Python-kod:} \\
+\hline
+
+% Flödesdiagram
+\raisebox{-\totalheight}{%
+\begin{tikzpicture}[node distance=2cm]
+\node (start) [startstop] {Start};
+\node (input) [io, below of=start] {Läs tal};
+\node (decision) [decision, below of=input] {tal > 0?};
+\node (process) [process, right of=decision,xshift=2cm] {Addera 5};
+\node (output1) [io, below of=process] {Skriv resultat};
+\node (output2) [io, below of=decision, yshift=-1cm] {Skriv negativt};
+\node (stop) [startstop, below of=output2] {Stop};
+
+\draw [arrow] (start) -- (input);
+\draw [arrow] (input) -- (decision);
+\draw [arrow] (decision.east) -- node[anchor=south] {ja} (process.west);
+\draw [arrow] (process) -- (output1);
+\draw [arrow] (decision.south) -- node[anchor=east] {nej} (output2.north);
+\draw [arrow] (output1.south) |- (stop.east);
+\draw [arrow] (output2) -- (stop);
+\end{tikzpicture}
+}
+&
+
+% Python-kod
+\raggedright
+\begin{lstlisting}[xleftmargin=1.5em]
+# Läs ett tal från användaren
+nummer = int(input("Ange ett tal: "))
+
+if nummer > 0:
+    # Addera 5 om talet är positivt
+    resultat = nummer + 5
+    print("Resultatet är:", resultat)
+else:
+    # Annars skriv "negativt"
+    print("Talet är negativt")
+\end{lstlisting}
+\vspace{0.5em}
+Användaren skriver in ett tal. Om det är större än 0 adderas fem till talet, och resultatet skrivs ut.
+Annars skrivs endast ut att talet är negativt utan att addera något.
+\\
+\end{tabular*}
+
+
+\subsection*{Exempel 3: While-loop med villkor}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} p{0.55\linewidth} | p{0.45\linewidth}}
+\textbf{Flödesdiagram:} & \textbf{Python-kod:} \\
+\hline
+
+% Flödesdiagram
+\raisebox{-\totalheight}{%
+\begin{tikzpicture}[node distance=2cm]
+\node (start) [startstop] {Start};
+\node (summainit) [process, below of=start] {Sätt summa till 0};
+\node (talinit) [process, below of=summainit] {Sätt tal till 0};
+\node (decision) [decision, below of=talinit] {summa < 1000?};
+\node (summera) [process, below of=decision] {summa <- summa + tal};
+\node (ökatal) [process, below of=summera] {Öka tal med 1};
+\node (stop) [startstop, right of=decision, xshift=2.5cm] {Stop};
+
+\draw [arrow] (start) -- (summainit);
+\draw [arrow] (summainit) -- (talinit);
+\draw [arrow] (talinit) -- (decision);
+\draw [arrow] (decision.east) -- node[anchor=south] {ja} (stop.west);
+\draw [arrow] (decision.south) -- node[anchor=east] {nej} (summera);
+\draw [arrow] (summera) -- (ökatal);
+\draw [arrow] (ökatal.west) -- ++(-1,0) -- ++(0,4) -- (decision.west);
+
+%\draw [arrow] (ökatal) -- (decision.west);
+
+\end{tikzpicture}
+}
+&
+
+% Python-kod
+\raggedright
+\begin{lstlisting}[caption={Summera positiva tal}, xleftmargin=1.5em]
+# Räknar 1+2+3+4+5... så länge summan är mindre än 1000
+summa = 0
+tal = 1
+while summa < 1000:
+    summa = summa + tal
+
+print("Summa 1+2+3+...+",tal,">1000")
+
+\end{lstlisting}
+\vspace{0.5em}
+Räknar ut vilket tal vi behöver räkna till så att $1+2+3+\cdots+tal>1000$.
+\\
+\end{tabular*}
+\newpage
+\subsection*{Exempel 4: Kombinerad if-sats och while-loop}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} p{0.55\linewidth} | p{0.48\linewidth}}
+\textbf{Flödesdiagram:} & \textbf{Python-kod:} \\
+\hline
+
+% Flödesdiagram
+\raisebox{-\totalheight}{%
+\begin{tikzpicture}[node distance=2cm]
+\node (start) [startstop] {Start};
+\node (antalinit) [process, below of=start] {Antal försök <- 0};
+
+\node (input) [io, below of=antalinit] {Läs lösenord};
+\node (decision1) [decision, below of=input] {antal försök < 10?};
+\node (antalöka) [process, below of=decision1] {Öka antal försök med 1};
+
+\node (decision2) [decision, below of=antalöka] {lösenord == korrekt?};
+\node (denied) [io, right of=antalöka, xshift=2cm] {Skriv ut ''Nekad''};
+\node (access) [io, below of=decision2] {Skriv ut ''Beviljad''};
+\node (maxtries) [io, below of=access] {Skriv ut ''Inga fler försök tillåts''};
+
+
+\node (stop) [startstop, below of=maxtries] {Stop};
+
+\draw [arrow] (start) -- (antalinit);
+\draw [arrow] (antalinit) -- (input);
+\draw [arrow] (input) -- (decision1);
+\draw [arrow] (decision1.south) -- node[anchor=east] {ja} (antalöka.north);
+
+\draw [arrow] (antalöka) -- (decision2);
+\draw [arrow] (decision2.south) -- node[anchor=east] {ja} (access.north);
+
+\draw [arrow] (decision1.west) -- node[anchor=south] {Nej} ++(-1,0) -- ++(0,-8) -- (maxtries.west);
+\draw [arrow] (maxtries) -- (stop);
+
+\draw [arrow] (access.east) -- ++(1.5,0) -- ++(0,-4) -- (stop.east);
+
+
+\draw [arrow] (denied.north) -- ++(0,3.5) -- (input.east);
+\draw [arrow] (decision2.east) -- node[anchor=south] {nej} ++(1.25,0) -- (denied.south);
+
+
+\end{tikzpicture}
+}
+&
+
+% Python-kod
+\raggedright
+\begin{lstlisting}[xleftmargin=1.5em]
+# Enkel lösenordskontroll
+korrekt_losenord = "python123"
+antal_försök=0
+
+while antal_försök<10:
+    losenord = input("Ange lösenord: ")
+    if losenord == korrekt_losenord:
+        print("Beviljad!")
+        break
+    else:
+        print("Nekad")
+    antal_försök = antal_försök + 1
+if antal_försök == 10:
+  print("Inga fler försök tillåts")
+\end{lstlisting}
+\vspace{0.5em}
+Låter användaren mata in ett lösenord tills dess att användaren skriver in
+''python123''. Programmet skriver ut meddelanden vid varje försök som säger
+om lösenordet var rätt eller inte. Programmet ger max 10 försök till användaren.
+Notera att i flödesdiagrammet finns ingen direkt motsvarighet till if-satsen efter loopen.
+Det beror på att flödesdiagramet beskriver vad programmet gör logiskt och inte i en direktöversättning. 
+Eftersom loopen i flödesdiagramet avslutas genom \textbf{Antal försök > 10?} behövs inte en extra koll.
+\\
+\end{tabular*}
+

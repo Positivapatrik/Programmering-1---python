@@ -1,0 +1,149 @@
+\section{For-loop (Upprepa saker med Python)}
+\label{section:for}
+
+En \texttt{for}-loop används när vi vill upprepa något för varje sak i en lista, varje bokstav i en text, eller över en rad nummer. Tanken är enkel: loopen går igenom varje sak i listan, en i taget, och gör något med den.
+
+\subsection{Hur fungerar en for-loop?}
+
+En \texttt{for}-loop i Python ser ut så här:
+
+\begin{lstlisting}[title=Syntax för for-loop]
+for variabel in lista:
+    # Gör något med variabeln
+\end{lstlisting}
+
+Vad händer steg för steg?\\
+
+1. \textbf{Variabeln} är ett namn vi väljer. Den kommer att innehålla en sak från listan i taget.\\
+2. \textbf{Listan} är det vi vill gå igenom, t.ex. en samling siffror eller bokstäver.\\
+3. Loopen tar varje sak i listan och lagrar den i variabeln. Sedan kör den koden inuti loopen.\\
+
+Exempel: Skriv ut siffror i en lista\\
+
+Här är ett enkelt exempel där vi har en lista med siffror:
+
+\begin{lstlisting}[title=Exempel: Skriv ut siffror]
+tal_lista = [1, 2, 3, 4, 5]
+
+for tal in tal_lista:
+    print(tal)
+\end{lstlisting}
+
+Vad händer när programmet körs?
+
+1. Första gången i loopen är \texttt{tal = 1}. Koden \texttt{print(tal)} körs och skriver ut 1.\\
+2. Sedan hoppar loopen till nästa tal i listan, \texttt{tal = 2}, och skriver ut 2.\\
+3. Detta fortsätter för alla tal i listan.\\
+
+Resultatet blir:
+
+\pythonoutput{Exempel: Output}{
+1 \\
+2 \\
+3 \\
+4 \\
+5
+}
+
+\observera{Det är viktigt att koden inuti loopen är indenterad (indragen), annars får du fel. Python använder indrag för att veta vad som hör till loopen.}
+
+\subsection{Ett tydligare exempel: Steg för steg}
+
+Låt oss se ett ännu tydligare exempel. Här använder vi en lista med namn:
+
+\begin{lstlisting}[title=Exempel: Skriv ut namn]
+namn_lista = ["Anna", "Björn", "Cecilia"]
+
+for namn in namn_lista:
+    print("Hej, " + namn + "!")
+\end{lstlisting}
+
+Vad händer när programmet körs?
+
+1. \textbf{Första varvet}: Variabeln \texttt{namn} blir \texttt{''Anna''}. Programmet skriver ut \texttt{"Hej, Anna!"}.\\
+2. \textbf{Andra varvet}: Variabeln \texttt{namn} blir \texttt{''Björn''}. Programmet skriver ut \texttt{"Hej, Björn!"}.\\
+3. \textbf{Tredje varvet}: Variabeln \texttt{namn} blir \texttt{''Cecilia''}. Programmet skriver ut \texttt{"Hej, Cecilia!"}.\\
+
+Outputen blir:
+
+\pythonoutput{Exempel: Output}{
+Hej, Anna! \\
+Hej, Björn! \\
+Hej, Cecilia!
+}
+
+
+\subsection{For-loop med \texttt{range()}}
+Vi kan också använda \texttt{range()} för att skapa en serie siffror automatiskt. Till exempel kan vi skriva ut talen från 1 till 5 utan att skapa en lista först:
+
+\begin{lstlisting}[title=Exempel: range()]
+for tal in range(1, 6):
+    print(tal)
+\end{lstlisting}
+
+Här skapar \texttt{range(1, 6)} siffrorna 1 till 5 (men inte 6). Resultatet blir detsamma som med listan ovan.
+
+\textbf{Steg i \texttt{range()}}\\
+Du kan lägga till ett steg i \texttt{range()} för att hoppa över tal. Till exempel:
+\begin{lstlisting}
+for tal in range(2, 11, 2):
+    print(tal)
+\end{lstlisting}
+Här hoppar \texttt{range()} två steg åt gången och skriver ut 2, 4, 6, 8, 10.
+
+
+\subsection{For-loop med text}
+En sträng i Python kan behandlas som en lista av bokstäver. Vi kan använda en \texttt{for}-loop för att skriva ut varje bokstav i en sträng:
+
+\begin{lstlisting}[title=Exempel: Loopa över en sträng]
+text = "Python"
+
+for bokstav in text:
+    print(bokstav)
+\end{lstlisting}
+
+Outputen blir:
+\pythonoutput{Exempel: Output}{
+P \\
+y \\
+t \\
+h \\
+o \\
+n
+}
+
+
+
+\subsection{Övningar}
+\begin{exercise}
+Skriv ett program som skriver ut alla siffror från 1 till 10, en per rad.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+for tal in range(1, 11):
+    print(tal)
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skriv ett program som skriver ut alla multiplar av 3 mellan 1 och 30.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+for tal in range(3, 31, 3):
+    print(tal)
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skriv ett program som skriver ut varje bokstav i strängen ''Programmering'' på en ny rad.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+text = "Programmering"
+for bokstav in text:
+    print(bokstav)
+\end{lstlisting}
+\end{solution}
+
+\secToExRef{examples:for}

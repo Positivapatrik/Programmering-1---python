@@ -1,0 +1,115 @@
+
+\section{Att använda slumptal och modulen \texttt{random}}
+\label{section:random}
+\subsection{Vad är en modul?}
+En modul i Python är en samling fördefinierad kod som vi kan använda i våra program. Moduler är som bibliotek som innehåller användbara funktioner och verktyg som kan spara oss tid och arbete. För att använda en modul måste vi först \textbf{importera} den.
+
+\begin{lstlisting}[title=Exempel på import]
+import random
+\end{lstlisting}
+
+I detta exempel importeras modulen \texttt{random}, som innehåller funktioner för att arbeta med slumpmässighet.
+
+\begrepp{Modul}{En modul är en samling färdiga funktioner och verktyg som vi kan använda i våra program.}
+
+\subsection{Slumptal med \texttt{random.randint()}}
+Funktionen \texttt{randint()} från modulen \texttt{random} genererar ett heltal mellan två givna värden. Det är användbart när vi vill simulera slumpmässiga val, som att kasta en tärning.
+
+\begin{lstlisting}[title=Exempel med \texttt{randint()}]
+import random
+
+tarning = random.randint(1, 6)
+print("Du slog:", tarning)
+\end{lstlisting}
+
+I detta program:\\
+- \texttt{random.randint(1, 6)} genererar ett heltal mellan 1 och 6 (inklusive båda).\\
+- Det slumpmässiga talet lagras i variabeln \texttt{tarning} och skrivs ut med \texttt{print()}.\\
+
+\begrepp{Slumptal}{Ett nummer som genereras slumpmässigt av datorn.}
+
+\observera{randint är en funktion på samma sätt som print.
+Funktionen randint finns däremot inte förinladdad när vi startar ett program och vi 
+måste därför importera den från random-modulen. 
+Vi ser också att vi till en funktion kan skicka in flera argument. I detta fall
+skickar vi in två tal som anger mellan vilka tal vi vill få ett slumpat tal. 
+När vi skickar flera argument separerar vi dom med kommatecken.}
+
+\subsection{Exempel: Ett enkelt spel}
+Här är ett program som använder \texttt{randint()} för att skapa ett enkelt spel där användaren ska gissa ett tal.
+
+\begin{lstlisting}[title=Gissa ett tal-spel]
+import random
+
+hemligt_tal = random.randint(1, 10)
+gissning = int(input("Gissa ett tal mellan 1 och 10: "))
+
+if gissning == hemligt_tal:
+    print("Grattis! Du gissade rätt.")
+else:
+    print("Fel! Det rätta talet var", hemligt_tal)
+\end{lstlisting}
+
+\subsection{Andra användbara funktioner i \texttt{random}}
+Modulen \texttt{random} innehåller fler funktioner än bara \texttt{randint}. \\
+Här är några exempel:\\
+- \texttt{random.random()} genererar ett slumptal mellan 0 och 1.\\
+- \texttt{random.choice()} väljer slumpmässigt ett objekt från en lista. 
+Vi kommer kolla mer på listor senare. \\
+
+\begin{lstlisting}[title=Exempel med \texttt{random.choice()}]
+import random
+
+farger = ["röd", "blå", "grön", "gul"]
+vald_farg = random.choice(farger)
+print("Den valda färgen är:", vald_farg)
+\end{lstlisting}
+
+För att ta reda på vad för funktioner som finns brukar det vara bäst att göra en sökning.
+Vanligen får man bättre resultat om man söker på engelska, exempelvis sökning ''python generate random number''.
+
+\subsection{Övningar}
+\begin{exercise}
+Skriv ett program som slumpar ett tal mellan 1 och 100 och skriver ut det.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+import random
+tal = random.randint(1, 100)
+print("Slumptalet är:", tal)
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skapa ett program som kastar två tärningar (med värden mellan 1 och 6) och skriver ut summan av deras resultat.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+import random
+tarning1 = random.randint(1, 6)
+tarning2 = random.randint(1, 6)
+print("Summan är:", tarning1 + tarning2)
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Gör ett program som väljer slumpmässigt en aktivitet från en lista olika aktiviteter, till exempel ''läsa'', ''spela spel'', eller ''träna''.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+import random
+aktiviteter = ["läsa", "spela spel", "träna", "rita", "baka"]
+vald_aktivitet = random.choice(aktiviteter)
+print("Idag ska du:", vald_aktivitet)
+\end{lstlisting}
+\end{solution}
+
+\subsection{Sammanfattning}
+- Moduler som \texttt{random} låter oss använda fördefinierade funktioner för specifika ändamål.  \\
+- Funktionen \texttt{randint()} används för att skapa slumptal inom ett visst intervall.  \\
+- Interaktiva program kan skapas genom att kombinera \texttt{input()} och slumpfunktioner.\\
+
+\secToExRef{examples:random}

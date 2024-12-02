@@ -1,0 +1,113 @@
+\section{Kodexempel: Matematik i Python}
+\label{examples:math}
+\exToSecRef{section:math}
+\subsection*{\texttt{math}-modulen}
+
+\begin{lstlisting}[title=Exempel 1: Importera math-modulen]
+# För att använda funktioner från math-modulen måste vi importera den
+import math
+
+# Exempel: Beräkna kvadratroten av ett tal
+tal = 25
+resultat = math.sqrt(tal)
+print("Kvadratroten av", tal, "är", resultat)
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 2: Exponentiering med \texttt{math.pow()}]
+import math
+
+# math.pow() beräknar bas upphöjt till exponent
+bas = 2
+exponent = 3
+resultat = math.pow(bas, exponent)
+print(bas, "upphöjt till", exponent, "är", resultat)
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 3: Heltalsavrundning med \texttt{math.floor()} och \texttt{math.ceil()}]
+import math
+
+# math.floor() rundar ner till närmaste heltal
+print(math.floor(5.7))  # 5
+
+# math.ceil() rundar upp till närmaste heltal
+print(math.ceil(5.7))   # 6
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 4: Använda matematiska konstanter som \texttt{math.pi}]
+import math
+
+# math.pi är ett konstant värde för pi
+radie = 5
+omkrets = 2 * math.pi * radie
+print("Omkretsen av en cirkel med radie", radie, "är", omkrets)
+\end{lstlisting}
+
+\subsection*{Specialoperationer}
+
+\begin{lstlisting}[title=Exempel 5: Exponentiering med \texttt{**}]
+# Operatorn ** används för att beräkna potenser
+bas = 3
+exponent = 4
+resultat = bas ** exponent
+print(bas, "upphöjt till", exponent, "är", resultat)  # 81
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 6: Modulusoperatorn \texttt{\%}]
+# Modulus operatorn \% beräknar resten av en division
+a = 10
+b = 3
+rest = a % b
+print("Resten av", a, "delat med", b, "är", rest)  # 1
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 7: Heltalsdivision med \texttt{//}]
+# Heltalsdivision returnerar endast heltalsdelen av resultatet
+a = 10
+b = 3
+kvot = a // b
+print(a, "heltalsdividerat med", b, "är", kvot)  # 3
+\end{lstlisting}
+
+\subsection*{Kombinerade exempel}
+
+\begin{lstlisting}[title=Exempel 8: Beräkna hypotenusan i en triangel]
+import math
+
+# Pythagoras sats: c = sqrt(a^2 + b^2)
+a = 3
+b = 4
+c = math.sqrt(a**2 + b**2)
+print("Hypotenusan för en triangel med sidorna", a, "och", b, "är", c)  # 5.0
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 9: Kontrollera om ett tal är jämnt eller udda]
+# Modulus kan användas för att kontrollera jämnhet
+tal = 15
+if tal % 2 == 0:
+    print(tal, "är ett jämnt tal.")
+else:
+    print(tal, "är ett udda tal.")
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 10: Rundning av tal till närmaste heltal]
+import math
+
+# Kombinera floor och ceil för att göra en egen rundningsfunktion
+tal = 5.5
+
+if tal - math.floor(tal) < 0.5:
+    avrundat = math.floor(tal)
+else:
+    avrundat = math.ceil(tal)
+
+print("Rundning av", tal, "ger", avrundat)  # 6
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 11: Area av en cirkel]
+import math
+
+# Beräkna area av en cirkel
+radie = 7
+area = math.pi * radie**2
+print("Arean av en cirkel med radie", radie, "är", area)
+\end{lstlisting}

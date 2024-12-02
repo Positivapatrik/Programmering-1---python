@@ -1,0 +1,60 @@
+\section{Bubble Sort}
+\label{section:bubblesort}
+
+\subsection*{Vad är Bubble Sort?}
+Bubble Sort är en enkel sorteringsalgoritm som fungerar genom att jämföra två intilliggande element i en lista och byta plats på dem om de är i fel ordning. Den upprepar detta tills hela listan är sorterad. Namnet "Bubble Sort" kommer från att det största (eller minsta) elementet "bubblar" upp till sin rätta plats i varje iteration.
+
+\subsection*{Hur fungerar Bubble Sort?}
+Algoritmen går igenom listan flera gånger:
+\begin{itemize}
+    \item Jämför två intilliggande element.
+    \item Om de är i fel ordning, byt plats på dem.
+    \item Fortsätt jämföra nästa par tills slutet av listan är nådd.
+    \item Upprepa detta tills hela listan är sorterad.
+\end{itemize}
+
+\subsection*{Kodexempel}
+Här är en implementation av Bubble Sort i Python:
+\begin{lstlisting}[title=Bubble Sort i Python]
+def bubble_sort(lista):
+    n = len(lista)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if lista[j] > lista[j+1]:
+                # Byt plats
+                lista[j], lista[j+1] = lista[j+1], lista[j]
+
+# Exempel
+data = [64, 34, 25, 12, 22, 11, 90]
+bubble_sort(data)
+print("Sorterad lista:", data)
+\end{lstlisting}
+
+\subsection*{Förklaring av koden}
+\begin{enumerate}
+    \item \texttt{for i in range(n)}: Loopar genom listan flera gånger.
+    \item \texttt{for j in range(0, n-i-1)}: Ser till att algoritmen inte jämför element som redan är sorterade.
+    \item \texttt{if lista[j] > lista[j+1]}: Kontrollerar om elementen är i fel ordning.
+    \item \texttt{lista[j], lista[j+1] = lista[j+1], lista[j]}: Byter plats på elementen.
+\end{enumerate}
+
+\subsection*{Visualisering}
+Bubble Sort kan visualiseras som att sorteringen sker steg för steg, där varje större element "flyter upp" till toppen.
+
+\subsection*{Övning}
+\begin{exercise}
+Implementera Bubble Sort för en lista som innehåller följande värden: \texttt{[10, 8, 2, 7, 1, 3]} och skriv ut den sorterade listan.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+data = [10, 8, 2, 7, 1, 3]
+bubble_sort(data)
+print("Sorterad lista:", data)
+\end{lstlisting}
+Output: \texttt{[1, 2, 3, 7, 8, 10]}
+\end{solution}
+
+\subsection*{Nackdelar med Bubble Sort}
+Bubble Sort är enkel att förstå, men den är inte särskilt effektiv för långa listor eftersom den har en tidskomplexitet på \(O(n^2)\). Detta innebär att tiden det tar att sortera listan ökar kvadratiskt med dess storlek. För större datamängder är mer avancerade algoritmer, som Quick Sort eller Merge Sort, bättre val.
+
+\secToExRef{examples:bubblesort}

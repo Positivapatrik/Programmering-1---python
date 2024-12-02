@@ -1,0 +1,130 @@
+\section{Kodexempel: For-loopar}
+\label{examples:for}
+\exToSecRef{section:for}
+\subsection*{Iterera över en lista}
+
+\begin{lstlisting}[title=Exempel 1: Iterera över en lista med strängar]
+# En lista med frukter
+frukt_lista = ["äpple", "banan", "körsbär"]
+
+# Iterera över varje frukt
+for frukt in frukt_lista:
+    print("Frukt:", frukt)
+# Output:
+# Frukt: äpple
+# Frukt: banan
+# Frukt: körsbär
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 2: Iterera över en lista med tal]
+# En lista med tal
+nummer_lista = [1, 2, 3, 4, 5]
+
+# Beräkna kvadraten av varje tal
+for nummer in nummer_lista:
+    kvadrat = nummer ** 2
+    print("Kvadraten av", nummer, "är", kvadrat)
+# Output:
+# Kvadraten av 1 är 1
+# Kvadraten av 2 är 4
+# ...
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 3: Ändra element i en lista (indirekt)]
+# En lista med startvärden
+nummer_lista = [10, 20, 30]
+
+# Skapa en ny lista med dubblerade värden
+dubblerade = []
+for nummer in nummer_lista:
+    dubblerade.append(nummer * 2)
+print("Dubblerade:", dubblerade)
+# Output: [20, 40, 60]
+\end{lstlisting}
+
+\subsection*{Iterera med \texttt{range()}}
+
+\begin{lstlisting}[title=Exempel 4: Iterera med range()]
+# Skriva ut tal från 0 till 4
+for i in range(5):
+    print("Tal:", i)
+# Output:
+# Tal: 0
+# Tal: 1
+# ...
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 5: Iterera med start och stopp i range()]
+# Skriva ut tal från 5 till 9
+for i in range(5, 10):
+    print("Tal:", i)
+# Output:
+# Tal: 5
+# Tal: 6
+# ...
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 6: Iterera med steg]
+# Skriva ut varannan siffra
+for i in range(0, 10, 2):
+    print("Varannan siffra:", i)
+# Output:
+# Varannan siffra: 0
+# Varannan siffra: 2
+# ...
+\end{lstlisting}
+
+\subsection*{Använda index i en lista}
+
+\begin{lstlisting}[title=Exempel 7: Iterera över index med range()]
+# En lista med frukter
+frukt_lista = ["äpple", "banan", "körsbär"]
+
+# Iterera över index
+for i in range(len(frukt_lista)):
+    print(f"Index {i} innehåller: {frukt_lista[i]}")
+# Output:
+# Index 0 innehåller: äpple
+# Index 1 innehåller: banan
+# ...
+\end{lstlisting}
+
+\subsection*{Kombination av listor och \texttt{range()}}
+
+\begin{lstlisting}[title=Exempel 8: Kombinera med flera listor]
+# Två listor med samma längd
+namn = ["Anna", "Björn", "Cecilia"]
+ålder = [22, 34, 19]
+
+# Skriva ut namn och ålder tillsammans
+for i in range(len(namn)):
+    print(namn[i], "är", ålder[i], "år gammal.")
+# Output:
+# Anna är 22 år gammal.
+# Björn är 34 år gammal.
+# ...
+\end{lstlisting}
+
+\subsection*{Något mer avancerade användningar}
+
+\begin{lstlisting}[title=Exempel 9: Summera tal i en lista]
+# Lista med tal
+nummer_lista = [1, 2, 3, 4, 5]
+
+# Beräkna summan
+total = 0
+for nummer in nummer_lista:
+    total += nummer
+print("Summan är:", total)
+# Output: Summan är: 15
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 10: Skriva ut omvänt med negativt steg]
+# Iterera från 10 till 1
+for i in range(10, 0, -1):
+    print("Nedräkning:", i)
+# Output:
+# Nedräkning: 10
+# Nedräkning: 9
+# ...
+\end{lstlisting}

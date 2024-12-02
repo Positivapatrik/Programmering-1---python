@@ -1,0 +1,102 @@
+\section{Logiska uttryck och booleanska värden}
+\label{section:boolean}
+\subsection{Vad är ett logiskt uttryck?}
+Ett logiskt uttryck är ett uttryck som antingen är \textbf{sant} (\texttt{True}) eller \textbf{falskt} (\texttt{False}). Logiska uttryck används ofta i beslutsfattande, till exempel i \texttt{if}-satser och loopar, för att avgöra om en viss kod ska köras.
+
+\begin{lstlisting}[title=Exempel på logiska uttryck]
+x = 5
+y = 10
+print(x < y)  # True
+print(x == y) # False
+\end{lstlisting}
+
+I exemplet ovan är \texttt{x < y} sant eftersom \texttt{5} är mindre än \texttt{10}. Däremot är \texttt{x == y} falskt eftersom \texttt{5} inte är lika med \texttt{10}.
+
+\begrepp{Boolean}{En datatyp i Python som kan vara \texttt{True} (sant) eller \texttt{False} (falskt). Den används i logiska uttryck.}
+
+\subsection{Logiska operatorer}
+Python har tre logiska operatorer: \texttt{and}, \texttt{or}, och \texttt{not}. Dessa används för att kombinera eller invertera logiska uttryck.
+
+\subsubsection{\textbf{and}}
+Operatorn \texttt{and} returnerar \texttt{True} om båda uttrycken är sanna.
+\begin{lstlisting}[title=Exempel med \texttt{and}]
+x = 5
+y = 10
+z = 15
+
+print(x < y and y < z)  # True (båda villkoren är sanna)
+print(x > y and y < z)  # False (det första villkoret är falskt)
+\end{lstlisting}
+
+\subsubsection{\textbf{or}}
+Operatorn \texttt{or} returnerar \texttt{True} om minst ett av uttrycken är sant.
+\begin{lstlisting}[title=Exempel med \texttt{or}]
+x = 5
+y = 10
+
+print(x > y or x < y)   # True (det andra villkoret är sant)
+print(x > y or y > 20)  # False (båda villkoren är falska)
+\end{lstlisting}
+
+\subsubsection{\textbf{not}}
+Operatorn \texttt{not} inverterar värdet av ett logiskt uttryck.
+\begin{lstlisting}[title=Exempel med \texttt{not}]
+x = 5
+y = 10
+
+print(not x < y)  # False (inverterar värdet av "x < y", som är True)
+\end{lstlisting}
+
+\subsection{Praktiskt exempel: Kontrollera behörighet}
+Här är ett exempel där logiska operatorer används för att avgöra om en person är behörig att rösta.
+\begin{lstlisting}[title=Exempel med behörighetskontroll]
+alder = int(input("Hur gammal är du? "))
+
+if alder >= 18 and alder < 120:
+    print("Du får rösta!")
+else:
+    print("Du är inte behörig att rösta.")
+\end{lstlisting}
+
+I detta program kontrolleras om åldern är 18 år eller äldre och mindre än 120.
+
+\subsection{Övningar}
+\begin{exercise}
+Skriv ett program som frågar användaren efter ett nummer. Programmet ska skriva ut \texttt{True} om numret är mellan 10 och 20, annars \texttt{False}.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+nummer = int(input("Skriv in ett nummer: "))
+print(nummer >= 10 and nummer <= 20)
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skriv ett program som frågar användaren efter två tal. Programmet ska skriva ut \texttt{True} om minst ett av talen är större än 50.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+tal1 = int(input("Skriv in det första talet: "))
+tal2 = int(input("Skriv in det andra talet: "))
+print(tal1 > 50 or tal2 > 50)
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skriv ett program som frågar användaren efter ett lösenord. Om lösenordet är \texttt{hemligt123} ska programmet skriva \texttt{Access granted}, annars \texttt{Access denied}.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+losenord = input("Skriv in ditt lösenord: ")
+
+if losenord == "hemligt123":
+    print("Access granted")
+else:
+    print("Access denied")
+\end{lstlisting}
+\end{solution}
+
+\secToExRef{examples:boolean}

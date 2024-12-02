@@ -1,0 +1,186 @@
+\section{Flödesdiagram}
+\label{section:flowchart}
+
+Flödesdiagram är ett visuellt verktyg för att beskriva algoritmer och programflöden. De hjälper till att strukturera och förstå hur ett program är uppbyggt och fungerar.
+
+\begrepp{Flödesdiagram}{
+Ett flödesdiagram är en grafisk representation av en process eller algoritm. Det använder symboler som representerar olika steg och pilar för att visa flödet mellan dessa steg.
+}
+
+Symboler i flödesdiagram
+I flödesdiagram används följande standardiserade symboler:\\
+
+- **Oval (start/stop):** Representerar början eller slutet på ett flöde.\\
+- **Rektangel (process):** Representerar ett steg i processen, till exempel en beräkning.\\
+- **Parallelltrapets (in-/utdata):** Representerar inmatning eller utmatning, t.ex. att läsa in eller skriva ut data.\\
+- **Romb (beslut):** Representerar ett beslut, t.ex. ett val baserat på en if-sats.\\
+
+Exempel: Enkel sekvens\\
+\textbf{Flödesdiagram:}
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
+
+\node (start) [startstop] {Start};
+\node (input) [io, below of=start] {Läs tal};
+\node (process) [process, below of=input] {Addera 5};
+\node (output) [io, below of=process] {Skriv resultat};
+\node (stop) [startstop, below of=output] {Stop};
+
+\draw [arrow] (start) -- (input);
+\draw [arrow] (input) -- (process);
+\draw [arrow] (process) -- (output);
+\draw [arrow] (output) -- (stop);
+
+\end{tikzpicture}
+\end{center}
+
+För att följa ett flödesdiagram så börjar vi i start-rutan, och följer pilarna. 
+Vid varje ny symbol så utför vi det som står där, exempelvis fråga användaren efter ett tal. 
+Så småningom så kommer vi nå stop-symbolen och då är programmet slut. 
+Flödesdiagram är till för att beskriva ett program, men behöver inte skrivas på ett
+lika exakt sätt som pythonkod. 
+Vi kan därför skriva saker som ''Läs tal'' och räkna med att den som läser
+flödesdiagrammet förstår att när vi sen skriver ''Addera 5'' menar vi ''Addera 5 till talet och spara det nya värdet till tal''.
+Hur formellt och noga man ska skriva sina flödesdiagram är delvis en smaksak. 
+Målet är däremot att det ska vara tydligt hur det fungerar. Kanske tycker du inte det är självklart vad ''Addera 5'' innebär i flödesdiagrammet ovan. 
+
+Vi kan också översätta vårat flödesdiagram till pythonkod:
+
+\textbf{Motsvarande Python-kod:}
+\begin{lstlisting}[language=Python]
+# Läs ett tal från användaren
+nummer = int(input("Ange ett tal: "))
+
+# Lägg till 5
+resultat = nummer + 5
+
+# Skriv ut resultatet
+print("Resultatet är:", resultat)
+\end{lstlisting}
+
+\pythonoutput{Exempel output}{
+Ange ett tal: 10\\
+Resultatet är: 15
+}
+
+Exempel: Beslutsstruktur
+I många program måste beslut tas beroende på data. Beslutsstrukturer visas i flödesdiagram med en romb.
+
+\textbf{Flödesdiagram:}
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
+
+\node (start) [startstop] {Start};
+\node (input) [io, below of=start] {Läs tal};
+\node (decision) [decision, below of=input] {Är talet positivt?};
+\node (process) [process, right of=decision, xshift=4cm] {Addera 5};
+\node (output1) [io, below of=process] {Skriv resultat};
+\node (output2) [io, below of=decision, yshift=-1cm] {Skriv Negativt};
+\node (stop) [startstop, below of=output2] {Stop};
+
+\draw [arrow] (start) -- (input);
+\draw [arrow] (input) -- (decision);
+\draw [arrow] (decision.east) -- node[anchor=south] {Ja} (process.west);
+\draw [arrow] (process) -- (output1);
+\draw [arrow] (decision.south) -- node[anchor=east] {Nej} (output2.north);
+\draw [arrow] (output1.south) |- (stop.east);
+\draw [arrow] (output2) -- (stop);
+
+\end{tikzpicture}
+\end{center}
+
+I programmet ser du romb eller diamantsymbolen som motsvarar en if-sats i programmeringskod. 
+Det är den ända symbolen i flödesdiagram som det kan gå ut mer än en pil från. 
+Notera också att pilarna som går ut från diamantsymbolen är markerade med Ja och Nej för att visa
+vid vilka fall vi ska gå vilken väg. 
+I detta fall så går vi på Ja-pilen om talet är positivt. Eller Nej pilen om talet inte är positivt. 
+Det som står i en diamantsymbol är alltså alltid en ja-nej-fråga. 
+
+\textbf{Motsvarande Python-kod:}
+\begin{lstlisting}[language=Python]
+# Läs ett tal från användaren
+nummer = int(input("Ange ett tal: "))
+
+if nummer > 0:
+    # Om talet är positivt, addera 5
+    resultat = nummer + 5
+    print("Resultatet är:", resultat)
+else:
+    # Om talet är negativt, skriv "Negativt"
+    print("Talet är negativt")
+\end{lstlisting}
+
+\pythonoutput{Exempel output 1}{
+Ange ett tal: 3\\
+Resultatet är: 8
+}
+
+\pythonoutput{Exempel output 2}{
+Ange ett tal: -5\\
+Talet är negativt
+}
+
+Om vi har ett program med en while-loop är det ända vi behöver göra
+att dra en pil tillbaka till ett tidigare steg. 
+En while-loop avbryts när ett villkor är falskt så vi kan använda
+våran vanliga diamantsymbol. 
+Genom att på detta sätt återanvända delar av ett flödesdiagram kan vi på samma
+sätt som i programmeringskod beskriva mera komplicerade processer.
+
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} p{0.55\linewidth} | p{0.45\linewidth}}
+\textbf{Flödesdiagram:} & \textbf{Python-kod:} \\
+\hline
+
+% Flödesdiagram
+\raisebox{-\totalheight}{%
+\begin{tikzpicture}[node distance=2cm]
+\node (start) [startstop] {Start};
+\node (summainit) [process, below of=start] {Sätt summa till 0};
+\node (talinit) [process, below of=summainit] {Sätt tal till 0};
+\node (decision) [decision, below of=talinit] {summa < 1000?};
+\node (summera) [process, below of=decision] {summa <- summa + tal};
+\node (ökatal) [process, below of=summera] {Öka tal med 1};
+\node (stop) [startstop, right of=decision, xshift=2.5cm] {Stop};
+
+\draw [arrow] (start) -- (summainit);
+\draw [arrow] (summainit) -- (talinit);
+\draw [arrow] (talinit) -- (decision);
+\draw [arrow] (decision.east) -- node[anchor=south] {ja} (stop.west);
+\draw [arrow] (decision.south) -- node[anchor=east] {nej} (summera);
+\draw [arrow] (summera) -- (ökatal);
+\draw [arrow] (ökatal.west) -- ++(-1,0) -- ++(0,4) -- (decision.west);
+
+%\draw [arrow] (ökatal) -- (decision.west);
+
+\end{tikzpicture}
+}
+&
+
+% Python-kod
+\raggedright
+\begin{lstlisting}[caption={Summera positiva tal}, xleftmargin=1.5em]
+# Räknar 1+2+3+4+5... så länge summan är mindre än 1000
+summa = 0
+tal = 1
+while summa < 1000:
+    summa = summa + tal
+
+print("Summa 1+2+3+...+",tal,">1000")
+
+\end{lstlisting}
+\vspace{0.5em}
+Räknar ut vilket tal vi behöver räkna till så att $1+2+3+\cdots+tal>1000$.
+\\
+\end{tabular*}
+\observera{I detta flödesdiagram har vi varit lite mer noga med att beskriva variabler än i tidigare exempel. 
+Det är som sagt inte en exakt vetenskap hur det ska beskrivas, men eftersom vi i programmet håller reda på både 
+summan av alla tal, och vilket tal vi ligger på, kan det vara bra att vara lite extra tydlig. 
+Notera också att vi skrivit \textbf{summa <- summa + tal} istället för \textbf{summa = summa + tal}. 
+Det är vanligt att man använder en pil för att beskriva tilldelning till en variabel när man skriver flödesdiagram, eller psuedokod vilket vi tar upp i ett senare avsnitt
+}
+
+
+Sammanfattning:
+Flödesdiagram är ett kraftfullt verktyg för att planera och analysera programlogik. Genom att översätta diagram till kod (och vice versa) kan du få en bättre förståelse för hur program fungerar.
+
+\secToExRef{examples:flowchart}

@@ -1,0 +1,89 @@
+\section{Sökning}
+\label{section:search}
+När vi arbetar med data är det vanligt att vi behöver hitta ett specifikt värde i en samling, som en lista. Det finns olika sätt att göra detta, beroende på hur data är organiserad. Två grundläggande sökalgoritmer är \textbf{linjär sökning} och \textbf{binär sökning}.
+
+\subsection{Linjär sökning}
+Linjär sökning är den enklaste sökalgoritmen. Den går igenom varje element i listan, ett i taget, tills det hittar det sökta värdet eller når slutet av listan.
+
+\begin{itemize}
+    \item Fördel: Fungerar på både sorterade och osorterade listor.
+    \item Nackdel: Kan vara långsam för långa listor eftersom varje element måste kontrolleras.
+\end{itemize}
+
+\subsubsection*{Kodexempel}
+Här är ett exempel på linjär sökning i Python:
+\begin{lstlisting}[title=Linjär sökning]
+def linjar_sokning(lista, mål):
+    for index, värde i enumerate(lista):
+        if värde == mål:
+            return index  # Returnerar positionen
+    return -1  # Returnerar -1 om värdet inte finns
+
+# Exempel
+data = [10, 20, 30, 40, 50]
+print(linjar_sokning(data, 30))  # Output: 2
+\end{lstlisting}
+
+\subsection{Binär sökning}
+Binär sökning är en mer effektiv algoritm för att hitta ett värde i en sorterad lista. Algoritmen delar listan på mitten och avgör om det sökta värdet är mindre eller större än mittpunkten. Därefter upprepas processen på den relevanta halvan av listan.
+
+\begin{itemize}
+    \item Fördel: Mycket snabbare än linjär sökning för stora listor.
+    \item Nackdel: Kräver att listan är sorterad.
+\end{itemize}
+
+\subsubsection*{Hur fungerar binär sökning?}
+\begin{enumerate}
+    \item Dela listan på mitten.
+    \item Kontrollera mittpunkten:
+        \begin{itemize}
+            \item Om värdet är det sökta, är vi klara.
+            \item Om värdet är mindre än det sökta, leta i den högra halvan.
+            \item Om värdet är större, leta i den vänstra halvan.
+        \end{itemize}
+    \item Upprepa tills värdet hittas eller listan är tom.
+\end{enumerate}
+
+\subsubsection*{Kodexempel}
+Här är ett exempel på binär sökning i Python:
+\begin{lstlisting}[title=Binär sökning]
+def binar_sokning(lista, mål):
+    vänster, höger = 0, len(lista) - 1
+    while vänster <= höger:
+        mitten = (vänster + höger) // 2
+        if lista[mitten] == mål:
+            return mitten
+        elif lista[mitten] < mål:
+            vänster = mitten + 1
+        else:
+            höger = mitten - 1
+    return -1  # Returnerar -1 om värdet inte finns
+
+# Exempel
+data = [10, 20, 30, 40, 50]
+print(binar_sokning(data, 30))  # Output: 2
+\end{lstlisting}
+
+\subsection{Jämförelse mellan linjär och binär sökning}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Egenskap} & \textbf{Linjär sökning} & \textbf{Binär sökning} \\ \hline
+Krav på sortering  & Nej                      & Ja                     \\ \hline
+Effektivitet       & Långsam för långa listor & Snabb för långa listor \\ \hline
+Komplexitet        & \(O(n)\)                & \(O(\log n)\)          \\ \hline
+\end{tabular}
+\caption{Jämförelse mellan linjär och binär sökning.}
+\end{table}
+
+\subsection{Övning}
+\begin{exercise}
+Skriv en Python-funktion som implementerar linjär sökning och använd den för att hitta värdet 25 i listan \texttt{[5, 15, 25, 35, 45]}.
+\end{exercise}
+
+\begin{exercise}
+Använd kodexemplet för binär sökning för att hitta värdet 50 i listan \texttt{[10, 20, 30, 40, 50]}.
+\end{exercise}
+
+\secToExRef{examples:search}

@@ -1,0 +1,117 @@
+\section{Kodexempel: Linjär och Binär Sökning}
+\label{examples:search}
+\exToSecRef{section:search}
+\subsection*{Exempel 1: Linjär sökning i en lista}
+
+\begin{lstlisting}[title=Linjär sökning i en lista]
+def linjar_sokning(lista, mål):
+    for index, värde i enumerate(lista):
+        if värde == mål:
+            return index  # Returnera index om målet hittas
+    return -1  # Returnera -1 om målet inte finns
+
+tal_lista = [10, 20, 30, 40, 50]
+mål = 30
+resultat = linjar_sokning(tal_lista, mål)
+print(f"Elementet finns vid index: {resultat}")
+# Output: Elementet finns vid index: 2
+\end{lstlisting}
+
+\subsection*{Exempel 2: Linjär sökning i en dictionary}
+
+\begin{lstlisting}[title=Linjär sökning i en dictionary]
+elever = {"Anna": 85, "Björn": 75, "Cecilia": 90, "David": 80}
+
+def linjar_sokning_dict(dictionary, mål):
+    for nyckel, värde i dictionary.items():
+        if värde == mål:
+            return nyckel
+    return None
+
+mål = 90
+resultat = linjar_sokning_dict(elever, mål)
+print(f"Eleven med poäng {mål} är: {resultat}")
+# Output: Eleven med poäng 90 är: Cecilia
+\end{lstlisting}
+
+\subsection*{Exempel 3: Binär sökning i en sorterad lista}
+
+\begin{lstlisting}[title=Binär sökning i en sorterad lista]
+def binar_sokning(lista, mål):
+    vänster, höger = 0, len(lista) - 1
+    while vänster <= höger:
+        mitten = (vänster + höger) // 2
+        if lista[mitten] == mål:
+            return mitten
+        elif lista[mitten] < mål:
+            vänster = mitten + 1
+        else:
+            höger = mitten - 1
+    return -1
+
+tal_lista = [10, 20, 30, 40, 50]
+mål = 40
+resultat = binar_sokning(tal_lista, mål)
+print(f"Elementet finns vid index: {resultat}")
+# Output: Elementet finns vid index: 3
+\end{lstlisting}
+
+\subsection*{Exempel 4: Visualisering av binär sökning}
+
+\begin{lstlisting}[title=Binär sökning - Visualisering]
+def binar_sokning_visualisering(lista, mål):
+    vänster, höger = 0, len(lista) - 1
+    steg = 0
+    while vänster <= höger:
+        mitten = (vänster + höger) // 2
+        print(f"Steg {steg}: Vänster={vänster}, Höger={höger}, Mitten={mitten}")
+        if lista[mitten] == mål:
+            return mitten
+        elif lista[mitten] < mål:
+            vänster = mitten + 1
+        else:
+            höger = mitten - 1
+        steg += 1
+    return -1
+
+tal_lista = [10, 20, 30, 40, 50]
+mål = 40
+binar_sokning_visualisering(tal_lista, mål)
+# Output:
+# Steg 0: Vänster=0, Höger=4, Mitten=2
+# Steg 1: Vänster=3, Höger=4, Mitten=3
+# Output: Elementet finns vid index: 3
+\end{lstlisting}
+
+\subsection*{Exempel 5: Tidskomplexitet}
+
+\begin{rconceptbox}{Tidskomplexitet för sökning}{
+\textbf{Linjär sökning:} $O(n)$, där $n$ är antalet element i listan.\\
+\textbf{Binär sökning:} $O(\log n)$, men listan måste vara sorterad.
+}
+\end{rconceptbox}
+
+\subsection*{Exempel 6: Binär sökning med rekursion}
+
+\begin{lstlisting}[title=Binär sökning - Rekursiv implementation]
+def binar_sokning_rekursiv(lista, mål, vänster, höger):
+    if vänster > höger:
+        return -1
+    mitten = (vänster + höger) // 2
+    if lista[mitten] == mål:
+        return mitten
+    elif lista[mitten] < mål:
+        return binar_sokning_rekursiv(lista, mål, mitten + 1, höger)
+    else:
+        return binar_sokning_rekursiv(lista, mål, vänster, mitten - 1)
+
+tal_lista = [10, 20, 30, 40, 50]
+mål = 50
+resultat = binar_sokning_rekursiv(tal_lista, mål, 0, len(tal_lista) - 1)
+print(f"Elementet finns vid index: {resultat}")
+# Output: Elementet finns vid index: 4
+\end{lstlisting}
+
+\subsection*{Praktiska tips}
+- Linjär sökning fungerar för osorterade listor eller dictionaries.
+- Binär sökning kräver en sorterad lista och är betydligt snabbare för större datamängder.

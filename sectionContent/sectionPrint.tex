@@ -1,0 +1,128 @@
+
+\section{Utskrifter med print}
+\label{section:print}
+\subsection{Hello World Program}
+Ett av de första programmen man brukar skriva när man lär sig ett nytt programmeringsspråk är det så kallade ''hello world''-programmet. Det vill säga ett program som skriver ut texten \textbf{hello world} på skärmen. 
+Så här ser det ut i Python:
+\begin{lstlisting}[title=Hello World-program]
+print("Hello, world!")
+\end{lstlisting}
+
+När du kör programmet visas texten \texttt{Hello, world!} i terminalen.
+
+\begrepp{Terminal/Konsol}{En terminal (eller konsol) är ett program där du kan skriva in och köra kommandon, till exempel för att köra ditt Python-program. }
+
+\subsection{Syntax i programmering}
+När vi kör Hello World-programmet behöver datorn veta vad vi vill göra. 
+Datorn kräver att vi skriver vårat program på ett väldigt exakt formatterat sätt, detta kallas syntax.
+Exempelvis skulle programmet ovan inte gå att köra om vi hade gjort om det på något av sätten nedan där 
+enstaka tecken tagits bort eller till och med om vi använder stora istället för små bokstäver.
+\begin{lstlisting}[title=Felaktig syntax i kod]
+PRINT("Hello, world")
+Print("Hello, world")
+print("Hello, world"
+print("Hello, world)
+print(Hello, world")
+print(Hello, world)
+print "Hello, world"
+skrivut(Hello, world)
+\end{lstlisting}
+
+\begrepp{Syntax}{Syntax är reglerna som bestämmer hur kod ska skrivas för att datorn ska förstå den. Om vi bryter mot syntaxen, fungerar inte programmet.}
+\begrepp{Syntax highlighting}{När våran editor färglägger olika delar av koden.
+Det gör det enklare för oss att läsa kod, eller att se när syntaxen är fel som i exemplena ovan. }
+
+
+\subsection{Funktionen \texttt{print()}}
+Funktionen \texttt{print()} används för att skriva ut text eller resultat på skärmen. En funktion är en bit kod som utför en specifik uppgift. När vi använder en funktion, skickar vi in något den ska jobba med. Detta kallas ett \textbf{argument}.
+
+Här är ett exempel:
+\begin{lstlisting}[title=Syntax för print()]
+print("Hej på dig")
+\end{lstlisting}
+
+- \textbf{print} är funktionens namn. \\
+- \textbf{paranteser} kommer alltid efter namnet på en funktion. Inom parantesen skriver vi det vi skickar in i funktionen (Argumentet). Detta kan liknas vid funktionsbegreppet i matematik där vi ofta skriver f(x). Där är f namnet och x argumentet. \\
+- \textbf{"Hej på dig"} är argumentet. Vi behöver markera för python att det vi skickat in är en text. Det gör vi genom att använda citattecken. Vi kommer senare att förstå varför. 
+
+\begrepp{Funktion}{En funktion är en bit kod som gör en uppgift. Vi kan använda funktioner genom att anropa dem med deras namn.}
+
+\begrepp{Argument}{Ett argument är något vi skickar in i en funktion, till exempel en text eller ett tal. Argument ges alltid inom ett par paranteser.}
+
+\subsection{Programmering kan räkna ut saker}
+Python kan användas för att göra matematiska beräkningar, till exempel addition, subtraktion, multiplikation och division. 
+Här är några exempel:
+
+\begin{lstlisting}[title=Matematik i Python]
+print(5 + 3)  # Addition
+print(10 - 4) # Subtraktion
+print(7 * 2)  # Multiplikation
+print(9 / 3)  # Division
+\end{lstlisting}
+
+\observera{I programmet ser du att vi skrivit förklaring till koden efter tecknet \#. 
+Genom att använda \# tecknet kan vi tala om för python att det som kommer efter inte är kod utan en förklaring. 
+Det kan vara bra för att den som läser koden ska förstå den. 
+Vi kommer prata mer om kodkommentarer i ett senare avsnitt.}
+
+När detta körs visas resultaten på skärmen:
+\pythonoutput{Output från Matematik i Python - programmet}{
+8 \\
+6\\
+14\\
+3.0
+}
+
+\begrepp{Output}{Det som programmet skriver ut på skärmen}
+
+\subsection{Övningar}
+Här är några övningar för att testa det du har lärt dig.
+
+\begin{exercise}
+Skriv ett program som visar texten \texttt{Hej! Jag lär mig Python.} på skärmen.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+print("Hej! Jag lär mig Python.")
+\end{lstlisting}
+
+\end{solution}
+
+\begin{exercise}
+Använd funktionen \texttt{print()} för att visa resultaten av följande beräkningar: \\
+12 + 5 \\
+20 - 8 \\ 
+4 * 3 \\
+16 / 4 \\
+\end{exercise}
+\begin{solution}
+
+\begin{lstlisting}
+print(12 + 5)
+print(20 - 8)
+print(4 * 3)
+print(16 / 4)
+\end{lstlisting}
+
+\pythonoutput{Output}{
+17\\
+12\\
+12\\
+4.0}
+
+\end{solution}
+
+\begin{exercise}
+Skriv ett program som använder \texttt{print()} för att visa texten \textbf{Python är roligt!} och beräkningen \texttt{10 + 15} på olika rader.
+\end{exercise}
+\begin{solution}
+
+\begin{lstlisting}
+print("Python är roligt!")
+print(10+15)
+\end{lstlisting}
+
+\end{solution}
+
+\secToExRef{examples:print}
+

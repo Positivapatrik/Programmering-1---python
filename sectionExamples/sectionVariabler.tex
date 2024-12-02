@@ -1,0 +1,151 @@
+\section{Kodexempel: Variabler och sekventiell exekvering}
+\label{examples:variables}
+\exToSecRef{section:variables}
+\subsection*{Grunderna för variabler}
+
+\begin{lstlisting}[title=Exempel 1: Skapa en variabel]
+name = "Alice"
+print(name)
+# Output: Alice
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 2: Variabel med heltal]
+age = 25
+print(age)
+# Output: 25
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 3: Variabel med flyttal]
+price = 19.99
+print(price)
+# Output: 19.99
+\end{lstlisting}
+
+\subsection*{Datatyper och deras användning}
+
+\begin{lstlisting}[title=Exempel 4: Kombinera variabler och text]
+name = "Bob"
+age = 30
+print("Namn:", name)
+print("Ålder:", age)
+# Output:
+# Namn: Bob
+# Ålder: 30
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 5: Konkatenering av strängar]
+first_name = "Alice"
+last_name = "Smith"
+full_name = first_name + " " + last_name
+print(full_name)
+# Output: Alice Smith
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 6: Implicit datakonvertering är inte tillåten]
+age = 20
+print("Jag är " + age + " år gammal.")
+# Ger ett TypeError! (sträng + int fungerar inte)
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 7: Konvertera till sträng för att undvika fel]
+age = 20
+print("Jag är " + str(age) + " år gammal.")
+# Output: Jag är 20 år gammal.
+\end{lstlisting}
+
+\subsection*{Sekventiell exekvering}
+
+\begin{lstlisting}[title=Exempel 8: Variabler kan ändra värde]
+counter = 0
+print(counter)  # Output: 0
+counter = counter + 1
+print(counter)  # Output: 1
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 9: Beräkningar med variabler]
+a = 10
+b = 3
+result = a * b
+print("Resultat:", result)
+# Output: Resultat: 30
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 10: Variabler beroende av varandra]
+x = 5
+y = x + 2
+print(y)  # Output: 7
+x = 10
+print(y)  # Output: 7 (ändringen av x påverkar inte y)
+\end{lstlisting}
+
+\subsection*{Blandade exempel}
+
+\begin{lstlisting}[title=Exempel 11: Multiplicera text]
+word = "Hej"
+print(word * 3)
+# Output: HejHejHej
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 12: Variabeln används innan den skapas]
+print(name)
+# Ger ett NameError! (variabeln är inte definierad)
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 13: Variabelns värde ändras stegvis]
+balance = 100
+balance = balance - 20
+balance = balance + 50
+print(balance)
+# Output: 130
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 14: Variabler med flyttal och heltal tillsammans]
+x = 10
+y = 3.5
+print("Summan är:", x + y)
+# Output: Summan är: 13.5
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 15: Använda input och variabel tillsammans]
+name = input("Vad heter du? ")
+print("Hej, " + name + "!")
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 16: Avrundning med variabel]
+pi = 3.14159
+rounded_pi = round(pi, 2)
+print("Pi avrundat:", rounded_pi)
+# Output: Pi avrundat: 3.14
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 17: Kontrollera en variabels datatyp]
+value = 42
+print(type(value))
+# Output: <class 'int'>
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 18: Multiplicera och uppdatera samtidigt]
+x = 4
+x *= 3  # Samma som x = x * 3
+print(x)
+# Output: 12
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 19: Förväxla inte namn på variabler]
+total = 100
+totaal = 200  # Felstavning skapar en ny variabel!
+print(total)   # Output: 100
+print(totaal)  # Output: 200
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 20: Variabler i längre beräkningar]
+width = 5
+height = 10
+area = width * height
+perimeter = 2 * (width + height)
+print("Area:", area)
+print("Omkrets:", perimeter)
+# Output:
+# Area: 50
+# Omkrets: 30
+\end{lstlisting}

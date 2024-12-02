@@ -1,0 +1,184 @@
+
+\newtcolorbox[auto counter, number within=section]{rconceptbox}[2][]{
+    size=small,
+    sharp corners,
+    right=1cm,
+    colframe=orange,
+    colback=orange!10,
+    coltitle=black,
+%    floatplacement=ht,float,
+    title=#2,
+    before=\vspace{1em}, % Mellanrum ovanför rutan
+    after=\vspace{1em},  % Mellanrum under rutan
+    #1,
+}
+
+\newtcolorbox{outputbox}[2][]{
+    size=small,
+    sharp corners,
+    right=1cm,
+%    colframe=gray!10,
+    colback=blue!5,
+    coltitle=blue!10,
+%    floatplacement=ht,float,
+    title=#2,
+    before=\vspace{1em}, % Mellanrum ovanför rutan
+    after=\vspace{1em},  % Mellanrum under rutan
+    #1,
+}
+
+
+\newtcolorbox{observerabox}[1][]{
+    size=small,
+    sharp corners,
+    right=1cm,
+    colframe=OliveGreen,
+    colback=OliveGreen!10,
+    coltitle=black,
+    title=Observera!,
+    before=\vspace{1em}, % Mellanrum ovanför rutan
+    after=\vspace{1em},  % Mellanrum under rutan
+    #1,
+}
+
+\newtcolorbox{refbox}[1][]{
+    size=small,
+    sharp corners,
+    right=1cm,
+    colframe=Blue,
+    colback=Blue!10,
+    coltitle=black,
+    before=\vspace{1em}, % Mellanrum ovanför rutan
+    after=\vspace{1em},  % Mellanrum under rutan
+    #1,
+}
+
+\lstset{
+    literate={å}{{\r{a}}}1
+             {ä}{{\"a}}1
+             {ö}{{\"o}}1
+             {Å}{{\r{A}}}1
+             {Ä}{{\"A}}1
+             {Ö}{{\"O}}1
+}
+% Anpassa utseendet på kod
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{red},
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    breaklines=true,
+    resetmargins=true,
+    captionpos=b,
+    language=Python,
+    showstringspaces=false,
+    tabsize=2,
+    upquote=true,
+    floatplacement=ht,float
+}
+
+\newcommand{\begrepp}[2]{
+	\begin{rconceptbox}{#1}#2\end{rconceptbox}
+}
+\newcommand{\observera}[1]{
+	\begin{observerabox}{}#1\end{observerabox}
+}
+\newcommand{\pythonoutput}[2]{
+	\begin{outputbox}{#1}#2 \end{outputbox}
+}
+\newcommand{\exToSecRef}[1]{
+Exempel från avsnitt \ref{#1}.
+}
+\newcommand{\secToExRef}[1]{
+\begin{refbox}För fler kodexempel se appendix \ref{#1}\end{refbox}
+}
+
+
+\title{Programmering 1 med Python}
+\author{Patrik Berggren}
+
+\hypersetup{colorlinks}
+
+\DeclareExerciseHeadingTemplate{custom}
+  {\section{\XSIMexpandcode{\XSIMtranslate{default-heading}}}}
+
+\DeclareExerciseEnvironmentTemplate{custom}
+  {%
+    \IfInsideSolutionTF
+      {\label{sol:\ExerciseID}}
+      {\label{ex:\ExerciseID}}%
+    \paragraph*
+      {%
+        \XSIMmixedcase{\GetExerciseName}%
+        \IfInsideSolutionTF
+          {
+            till \GetExerciseParameter{exercise-name}%
+            ~\GetExerciseProperty{counter}%
+            ~(Från sida~\pageref{ex:\ExerciseID})
+          }
+          {%
+            ~\GetExerciseProperty{counter}%
+%            \GetExercisePropertyT{subtitle}{~(\PropertyValue)}
+          }
+      }
+      \noindent
+  }
+  {%
+    \IfInsideSolutionF
+      {\par\leavevmode\hfill
+       Lösningar på sida~\pageref{sol:\ExerciseID}~$\blacktriangleleft$}%
+  }
+\xsimsetup{
+  exercise/name = Uppgift,
+  solution/name = Lösning,
+  exercise/template = custom ,
+  solution/template = custom ,
+  print-solutions/headings-template = custom
+}
+\DeclareExerciseHeadingTemplate{solution}{%
+    \section{ Lösningsförslag}
+}
+
+
+
+
+%For flowcharts
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, 
+minimum width=3cm, 
+minimum height=1cm,
+text centered, 
+draw=black, 
+fill=red!30]
+
+\tikzstyle{io} = [trapezium, 
+trapezium stretches=true, % A later addition
+trapezium left angle=70, 
+trapezium right angle=110, 
+minimum width=3cm, 
+minimum height=1cm, text centered, 
+draw=black, fill=blue!30]
+
+\tikzstyle{process} = [rectangle, 
+minimum width=3cm, 
+minimum height=1cm, 
+text centered, 
+text width=3cm, 
+draw=black, 
+fill=orange!30]
+
+\tikzstyle{decision} = [diamond, 
+minimum width=3cm, 
+minimum height=1cm,
+%yshift=-0.5cm,
+aspect=3,
+text centered, 
+draw=black, 
+fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]

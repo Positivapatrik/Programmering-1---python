@@ -1,0 +1,127 @@
+\section{Kodexempel: Funktioner}
+\label{examples:functions}
+\exToSecRef{section:functions}
+\subsection*{Enkla funktioner utan parametrar och returvärde}
+
+\begin{lstlisting}[title=Exempel 1: En enkel funktion utan parametrar]
+def hälsa():
+    print("Hej! Välkommen till Python-programmering.")
+
+# Anropa funktionen
+hälsa()
+# Output: Hej! Välkommen till Python-programmering.
+\end{lstlisting}
+
+\subsection*{Funktioner med parametrar}
+
+\begin{lstlisting}[title=Exempel 2: Funktion med en parameter]
+def hälsa(namn):
+    print("Hej,", namn, "!")
+
+# Anropa funktionen med ett argument
+hälsa("Anna")
+# Output: Hej, Anna!
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 3: Funktion med flera parametrar]
+def addera(tal1, tal2):
+    print("Summan är:", tal1 + tal2)
+
+# Anropa funktionen med två argument
+addera(5, 7)
+# Output: Summan är: 12
+\end{lstlisting}
+
+\subsection*{Funktioner med returvärde}
+
+\begin{lstlisting}[title=Exempel 4: Funktion som returnerar ett värde]
+def kvadrat(tal):
+    return tal * tal
+
+# Spara returvärdet i en variabel
+resultat = kvadrat(4)
+print("Kvadraten av 4 är:", resultat)
+# Output: Kvadraten av 4 är: 16
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 5: Funktion med både parametrar och returvärde]
+def multiplicera(tal1, tal2):
+    return tal1 * tal2
+
+# Använd returvärdet direkt
+print("Produkten är:", multiplicera(3, 7))
+# Output: Produkten är: 21
+\end{lstlisting}
+
+\subsection*{Anropa funktioner från andra funktioner}
+
+\begin{lstlisting}[title=Exempel 6: Funktion som använder en annan funktion]
+def kvadrat(tal):
+    return tal * tal
+
+def kvadratsumma(tal1, tal2):
+    return kvadrat(tal1) + kvadrat(tal2)
+
+print("Kvadratsumman är:", kvadratsumma(2, 3))
+# Output: Kvadratsumman är: 13
+\end{lstlisting}
+
+\subsection*{Namespace och lokalitet i funktioner}
+
+\begin{lstlisting}[title=Exempel 7: Lokala och globala variabler]
+def öka_värde():
+    värde = 10  # Lokal variabel
+    print("Inuti funktionen:", värde)
+
+värde = 5  # Global variabel
+öka_värde()
+print("Utanför funktionen:", värde)
+
+# Output:
+# Inuti funktionen: 10
+# Utanför funktionen: 5
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 8: Problem med att använda lokala variabler utanför funktioner]
+def skapa_värde():
+    lokalt_värde = 42
+    print("Inuti funktionen:", lokalt_värde)
+
+skapa_värde()
+# Följande rad kommer orsaka ett fel eftersom "lokalt_värde" är definierad inuti funktionen
+# print("Utanför funktionen:", lokalt_värde)
+
+# Output:
+# Inuti funktionen: 42
+# Fel: NameError: name 'lokalt_värde' is not defined
+\end{lstlisting}
+
+\subsection*{Praktiska exempel}
+
+\begin{lstlisting}[title=Exempel 9: Huvudfunktion i ett program]
+def huvudfunktion():
+    print("Detta är huvudprogrammet")
+    resultat = addera(3, 4)
+    print("Resultatet är:", resultat)
+
+def addera(tal1, tal2):
+    return tal1 + tal2
+
+# Kör huvudfunktionen
+huvudfunktion()
+
+# Output:
+# Detta är huvudprogrammet
+# Resultatet är: 7
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 10: Kontrollera om program körs direkt]
+def huvudfunktion():
+    print("Programmet körs direkt")
+
+if __name__ == "__main__":
+    huvudfunktion()
+
+# Output:
+# Programmet körs direkt (om koden körs direkt)
+\end{lstlisting}

@@ -1,0 +1,129 @@
+\section{Matematik i Python: \texttt{math}-modulen och specialoperatorer}
+\label{section:math}
+Python har inbyggda verktyg för matematiska beräkningar. Förutom grundläggande operatorer som \texttt{+}, \texttt{-}, \texttt{*}, och \texttt{/} finns fler avancerade funktioner i \texttt{math}-modulen. Här ska vi även titta på specialoperatorerna \texttt{**}, \texttt{\%}, och \texttt{//}.
+
+\subsection{\texttt{math}-modulen}
+\texttt{math}-modulen är en inbyggd modul i Python som erbjuder en mängd matematiska funktioner och konstanter.
+
+\subsubsection{Importera \texttt{math}-modulen}
+För att använda modulen måste den importeras i din kod:
+\begin{lstlisting}[title=Exempel: Importera \texttt{math}]
+import math
+\end{lstlisting}
+
+Efter att du har importerat \texttt{math} kan du använda dess funktioner.
+
+\subsubsection{Vanliga funktioner i \texttt{math}}
+Här är några av de mest använda funktionerna i \texttt{math}:
+\begin{lstlisting}[title=Exempel på \texttt{math}-funktioner]
+import math
+
+# Roten ur ett tal
+print(math.sqrt(16))  # 4.0
+
+# Upphöjning till en viss potens
+print(math.pow(2, 3))  # 8.0
+
+# Heltalsdel av en division
+print(math.floor(7.8))  # 7
+print(math.ceil(7.2))   # 8
+
+# Värdet av pi och e
+print(math.pi)  # 3.141592653589793
+print(math.e)   # 2.718281828459045
+\end{lstlisting}
+
+\begrepp{Modul}{En modul är ett bibliotek av funktioner och variabler som kan importeras och användas i ett program.}
+
+\subsection{Specialoperatorer}
+Python har flera operatorer som är användbara för matematiska beräkningar utöver de grundläggande.
+
+\subsubsection{\texttt{**} (Exponentiering)}
+Operatorn \texttt{**} används för att upphöja ett tal till en viss potens.
+\begin{lstlisting}[title=Exempel på \texttt{**}]
+print(2 ** 3)  # 8 (2 upphöjt till 3)
+print(5 ** 2)  # 25 (5 upphöjt till 2)
+\end{lstlisting}
+
+\subsubsection{\texttt{\%} (Modulus)}
+Operatorn \texttt{\%} returnerar resten vid en division.
+\begin{lstlisting}[title=Exempel på \texttt{\%}]
+print(10 % 3)  # 1 (10 dividerat med 3 ger resten 1)
+print(15 % 4)  # 3 (15 dividerat med 4 ger resten 3)
+\end{lstlisting}
+
+\begrepp{Modulus}{En operation som returnerar resten vid division av två tal.}
+
+\subsubsection{\texttt{//} (Heltalsdivision)}
+Operatorn \texttt{//} utför division och returnerar endast heltalsdelen av resultatet.
+\begin{lstlisting}[title=Exempel på \texttt{//}]
+print(10 // 3)  # 3 (heltalsdelen av 10 dividerat med 3)
+print(15 // 4)  # 3 (heltalsdelen av 15 dividerat med 4)
+\end{lstlisting}
+
+\begrepp{Heltalsdivision}{En operation som returnerar heltalsdelen av en division, utan decimaler.}
+
+\subsection{Praktiskt exempel: Beräkna cirkelns area}
+Här använder vi \texttt{math}-modulen och en av specialoperatorerna för att beräkna en cirkels area.
+\begin{lstlisting}[title=Beräkna cirkelns area]
+import math
+
+# Fråga användaren efter radien
+radie = float(input("Ange radien: "))
+
+# Beräkna arean
+area = math.pi * (radie ** 2)
+print("Cirkelns area är:", area)
+\end{lstlisting}
+
+\subsection{Övningar}
+\begin{exercise}
+Skriv ett program som använder \texttt{math.sqrt()} för att beräkna kvadratroten av ett tal som användaren anger.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+import math
+
+# Fråga användaren efter ett tal
+tal = float(input("Ange ett tal: "))
+
+# Beräkna och visa kvadratroten
+print("Kvadratroten av", tal, "är:", math.sqrt(tal))
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skriv ett program som använder \texttt{\%} för att avgöra om ett tal som användaren anger är jämnt eller udda.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+# Fråga användaren efter ett tal
+tal = int(input("Ange ett tal: "))
+
+# Kontrollera om talet är jämnt eller udda
+if tal % 2 == 0:
+    print("Talet är jämnt.")
+else:
+    print("Talet är udda.")
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skriv ett program som frågar användaren efter två tal och skriver ut resultatet av \texttt{//} och \texttt{\%}.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+# Fråga användaren efter två tal
+tal1 = int(input("Ange det första talet: "))
+tal2 = int(input("Ange det andra talet: "))
+
+# Beräkna heltalsdivision och resten
+print("Heltalsdivision:", tal1 // tal2)
+print("Rest:", tal1 % tal2)
+\end{lstlisting}
+\end{solution}
+
+\secToExRef{examples:math}

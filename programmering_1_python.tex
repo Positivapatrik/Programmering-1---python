@@ -1,0 +1,52 @@
+%
+%TODOs
+% * Try-catch
+% Functions måste vara mer grundläggande förklarat. Gör avsnittet längre.
+% Kodexempel för varje sektion
+% Algoritm begreppbox
+% Beskriv vad sortering är tydligare
+% Kapitel två överlag lite för otydligt
+
+\documentclass[a4paper]{book}
+
+\usepackage[a4paper, margin=1.5cm]{geometry}
+
+% Paket
+\usepackage[utf8]{inputenc} % Svensk teckenstandard
+\usepackage[swedish]{babel} % Språkpaket
+\usepackage{amsmath, amssymb} % För matematik
+\usepackage{listings} % Kodblock
+\usepackage{xcolor} % Färg för kod
+\usepackage[dvipsnames]{xcolor}
+
+
+% För xsim (Excersice and solution)
+\usepackage{amssymb}
+\usepackage[use-files]{xsim}
+\usepackage{lipsum,hyperref}
+
+
+% För dyslexi
+% Ställ in typsnitt och grundinställningar
+\usepackage{fontspec}
+\setmainfont{Arial}[LetterSpace=8]
+\renewcommand{\baselinestretch}{1.5} % Sätt radavstånd till 1,5
+\setlength{\spaceskip}{1.2em plus 0.2em minus 0.2em} % Ordavstånd
+\raggedright
+
+% För textrutor
+\usepackage[most]{tcolorbox}
+
+
+\input{./document/headSettings}
+
+
+%\includeonly{./sectionContent/sectionFlowchart}
+%\includeonly{./sectionExamples/sectionFlowchart}
+
+\begin{document}
+
+\input{./document/documentMainContent}
+\input{./document/documentExampleCodes}
+
+\end{document}

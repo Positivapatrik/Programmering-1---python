@@ -1,0 +1,84 @@
+\section{Kodexempel: Listor}
+\label{examples:lists}
+\exToSecRef{section:lists}
+\subsection*{Skapa och använda listor}
+
+\begin{lstlisting}[title=Exempel 1: Skapa en tom lista]
+# En tom lista kan skapas med []
+min_lista = []
+print("Tom lista:", min_lista)  # []
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 2: Skapa en lista med tal]
+# En lista med heltal
+tal_lista = [1, 2, 3, 4, 5]
+print("Lista med tal:", tal_lista)  # [1, 2, 3, 4, 5]
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 3: Skapa en lista med strängar]
+# En lista med textsträngar
+sträng_lista = ["äpple", "banan", "körsbär"]
+print("Lista med strängar:", sträng_lista)  # ["äpple", "banan", "körsbär"]
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 4: Blandad lista]
+# En lista kan innehålla olika datatyper
+blandad_lista = [10, "hej", 3.14, True]
+print("Blandad lista:", blandad_lista)  # [10, "hej", 3.14, True]
+\end{lstlisting}
+
+\subsection*{Åtkomst med index}
+
+\begin{lstlisting}[title=Exempel 5: Hämta ett element med index]
+# Hämta det första elementet (index 0)
+frukt_lista = ["äpple", "banan", "körsbär"]
+print("Första frukten:", frukt_lista[0])  # "äpple"
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 6: Hämta det sista elementet]
+# Hämta det sista elementet med negativt index
+print("Sista frukten:", frukt_lista[-1])  # "körsbär"
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 7: Indexeringsfel (out-of-bounds)]
+# Försök att komma åt ett index utanför listans storlek
+try:
+    print(frukt_lista[3])  # IndexError
+except IndexError:
+    print("Fel: Index utanför listans storlek.")
+\end{lstlisting}
+
+\subsection*{Modifiera listor}
+
+\begin{lstlisting}[title=Exempel 8: Lägg till ett element med append()]
+# Lägg till ett nytt element i slutet av listan
+frukt_lista.append("druva")
+print("Efter append:", frukt_lista)  # ["äpple", "banan", "körsbär", "druva"]
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 9: Ta bort ett element med remove()]
+# Ta bort ett element med remove()
+frukt_lista.remove("banan")
+print("Efter remove:", frukt_lista)  # ["äpple", "körsbär", "druva"]
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 10: Sortera en lista med sort()]
+# Sortera en lista av tal
+nummer_lista = [5, 2, 9, 1, 7]
+nummer_lista.sort()
+print("Sorterad lista:", nummer_lista)  # [1, 2, 5, 7, 9]
+\end{lstlisting}
+
+\subsection*{Listaegenskaper}
+
+\begin{lstlisting}[title=Exempel 11: Antal element med len()]
+# Räkna antalet element i en lista
+antal = len(frukt_lista)
+print("Antal frukter:", antal)  # 3
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 12: Tom lista med len()]
+# En tom lista har längden 0
+tom_lista = []
+print("Längden av en tom lista:", len(tom_lista))  # 0
+\end{lstlisting}

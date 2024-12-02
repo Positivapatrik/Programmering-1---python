@@ -1,0 +1,138 @@
+\section{Listor i Python}
+\label{section:lists}
+Listor är en av de mest användbara datatyperna i Python. De används för att lagra flera värden i en och samma variabel. Till exempel kan en lista innehålla en samling av tal, strängar eller till och med andra listor.
+
+\subsection{Skapa en lista}
+En lista skapas genom att använda hakparenteser \texttt{[]} och separera elementen med kommatecken:
+\begin{lstlisting}[title=Exempel: Skapa en lista]
+# En lista med tal
+tal = [1, 2, 3, 4, 5]
+
+# En lista med text
+djur = ["katt", "hund", "kanin"]
+
+# En blandad lista
+blandad = [1, "äpple", True]
+\end{lstlisting}
+
+\begrepp{Lista}{En lista är en samling av värden som kan lagras i en variabel.}
+\begrepp{Element}{Ett värde i listan kallas för ett element}
+
+\subsection{Åtkomst till element i en lista}
+Varje element i en lista har ett index som börjar på \texttt{0} för det första elementet. Du kan komma åt ett element genom att ange dess index inom hakparenteser:
+\begin{lstlisting}[title=Exempel: Åtkomst via index]
+djur = ["katt", "hund", "kanin"]
+print(djur[0])  # Skriv ut "katt"
+print(djur[1])  # Skriv ut "hund"
+\end{lstlisting}
+
+\begrepp{Index}{Index är platsen på ett av listans värden. I python anges första elementet med index 0.}
+
+\subsection{Modifiera en lista}
+Du kan ändra värdet på ett element, lägga till nya element eller ta bort befintliga element.
+
+\paragraph{Ändra värde:}
+\begin{lstlisting}[title=Exempel: Ändra värde]
+djur = ["katt", "hund", "kanin"]
+djur[1] = "hamster"  # Ändra "hund" till "hamster"
+print(djur)  # ["katt", "hamster", "kanin"]
+\end{lstlisting}
+
+\paragraph{Lägga till element:}
+\begin{lstlisting}[title=Exempel: Lägga till element]
+djur = ["katt", "hund"]
+djur.append("kanin")  # Lägg till "kanin" sist i listan
+print(djur)  # ["katt", "hund", "kanin"]
+\end{lstlisting}
+
+\paragraph{Ta bort element:}
+\begin{lstlisting}[title=Exempel: Ta bort element]
+djur = ["katt", "hund", "kanin"]
+djur.remove("hund")  # Ta bort "hund"
+print(djur)  # ["katt", "kanin"]
+\end{lstlisting}
+
+\subsection{Loopar genom en lista}
+Det är vanligt att använda loopar för att bearbeta alla element i en lista.
+Vi kommer i nästa avsnitt se att man vanligen gör detta med en for-loop. 
+Vi använder i detta exempel en while-loop eftersom det är vad vi sett hittills. 
+\begin{lstlisting}[title=Exempel: For-loop med en lista]
+djur = ["katt", "hund", "kanin"]
+i = 0
+while i<djur.len(): #Kör loopen tills i når slutet på listan
+  print(djur[i])
+  i = i + 1
+
+# Skriver ut:
+# katt
+# hund
+# kanin
+\end{lstlisting}
+
+Notera att vi kör programmet till variabeln \textbf{i} har ett värde som är ett mindre än listans längd.
+Eftersom vi börjar räkna på 0 får vi ändå med alla tal. 
+Inuti loopen använder vi våran variabel \textbf{i} för att skriva ut
+ett element i listan i taget. 
+
+\observera{Vi använder vanligen en variabel med namnet \textbf{i} för att beskriva ett index}
+
+\subsection{Index out of bounds}
+Ett vanligt fel när man jobbar med listor är ett ''Index out of bounds''-error.
+Det betyder att vi har försökt hämta ett element (Ett värde i listan) som ligger utanför listan.
+Om vi i en lista med 4 element försöker hämta det 5 elementet får vi det felet.
+\begin{lstlisting}[title=Index out of bounds error]
+tal = [1,2,3,4]
+print(tal[5])
+\end{lstlisting}
+
+\begrepp{Index out of bounds-error}{En typ av fel vi får när vi försöker hämta ett element från en lista som ligger utanför listan.}
+
+\subsection{Vanliga metoder för listor}
+Python erbjuder flera metoder för att arbeta med listor:
+\begin{itemize}
+    \item \texttt{append()}: Lägg till ett element i slutet.
+    \item \texttt{remove()}: Ta bort ett specifikt element.
+    \item \texttt{pop()}: Ta bort och returnera det sista elementet (eller ett specifikt index).
+    \item \texttt{sort()}: Sortera listan.
+    \item \texttt{len()}: Returnera antalet element i listan.
+\end{itemize}
+\begin{lstlisting}[title=Exempel: Använda lista-metoder]
+djur = ["kanin", "hund", "katt"]
+djur.sort()  # Sortera listan
+print(djur)  # ["hund", "kanin", "katt"]
+\end{lstlisting}
+
+\subsection{Övningar}
+\begin{exercise}
+Skapa en lista med namnen på tre frukter och skriv ut dem en och en med en loop.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+frukter = ["äpple", "banan", "apelsin"]
+for frukt in frukter:
+    print(frukt)
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skapa en lista med siffrorna 1 till 5. Lägg till talet 6 och skriv sedan ut hela listan.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+tal = [1, 2, 3, 4, 5]
+tal.append(6)
+print(tal)  # [1, 2, 3, 4, 5, 6]
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skapa en lista med talen 10, 20 och 30. Använd \texttt{len()} för att skriva ut antalet element i listan.
+\end{exercise}
+\begin{solution}
+\begin{lstlisting}
+tal = [10, 20, 30]
+print(len(tal))  # 3
+\end{lstlisting}
+\end{solution}
+
+\secToExRef{examples:lists}

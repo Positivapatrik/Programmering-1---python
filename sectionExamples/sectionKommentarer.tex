@@ -1,0 +1,102 @@
+\section{Kodexempel: Kodkommentarer}
+\label{examples:comments}
+\exToSecRef{section:comments}
+\subsection*{Grunderna i kommentarer}
+
+
+\begin{lstlisting}[title=Exempel 1: Enkel kommentar med \texttt{\#}]
+# Detta är en kommentar. Den körs inte av programmet.
+print("Hej!")  # Detta skriver ut "Hej!" till skärmen.
+# Kommentarer kan användas för att förklara vad koden gör.
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 2: Multiradkommentarer med trippelcitat (\texttt{"""})]
+"""
+Detta är en kommentar som kan sträcka sig
+över flera rader. Den används ofta för att
+beskriva ett program eller en funktion.
+"""
+print("Hej från ett program med kommentarer!")
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 3: Kommentarer för felsökning]
+# Följande rad är tillfälligt avstängd för att felsöka programmet.
+# print("Den här raden är inaktiverad.")
+print("Den här raden körs.")
+# Kommenterad kod kan aktiveras igen om det behövs.
+\end{lstlisting}
+
+\subsection*{God kommentarpraxis}
+
+\begin{lstlisting}[title=Exempel 4: Klara och tydliga kommentarer]
+# Beräknar summan av två tal och skriver ut resultatet
+a = 5
+b = 7
+summan = a + b
+print("Summan är:", summan)
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 5: Kommentera inte självklarheter]
+# Dåligt exempel:
+a = 5  # Sätt a till 5
+b = 7  # Sätt b till 7
+# Det här är onödiga kommentarer eftersom koden redan förklarar sig själv.
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 6: Förklara varför och inte bara vad]
+# Dåligt exempel:
+a = 5  # Sätt a till 5
+# Bra exempel:
+a = 5  # Antalet användare som får tillgång samtidigt
+\end{lstlisting}
+
+\subsection*{\texttt{TODO}-kommentarer}
+
+\begin{lstlisting}[title=Exempel 7: Använd TODO-kommentarer för framtida uppgifter]
+# TODO: Lägg till inmatning för användaren
+a = 10
+b = 20
+print("Summan är:", a + b)
+\end{lstlisting}
+
+\subsection*{Tillämpning av kommentarer}
+
+\begin{lstlisting}[title=Exempel 8: Kombinera olika typer av kommentarer]
+"""
+Detta program läser in två tal från användaren,
+beräknar summan och visar resultatet.
+"""
+# Läser in två tal från användaren
+a = int(input("Ange det första talet: "))  # Konverterar till heltal
+b = int(input("Ange det andra talet: "))  # Konverterar till heltal
+
+# Beräkna och skriv ut summan
+summan = a + b
+print("Summan är:", summan)  # Skriver ut resultatet
+\end{lstlisting}
+
+\subsection*{Fler exempel}
+
+\begin{lstlisting}[title=Exempel 9: Kommentarer för komplexa delar av koden]
+# Kontrollera om ett tal är jämnt eller udda
+number = 7
+# Om resten av division med 2 är 0, är talet jämnt
+if number % 2 == 0:
+    print("Talet är jämnt.")
+else:
+    print("Talet är udda.")
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 10: Sätt din kod i kontext med kommentarer]
+"""
+Detta är en enkel kalkylator som kan addera, subtrahera,
+multiplicera och dividera två tal. Just nu är funktionerna
+för multiplikation och division inte implementerade.
+"""
+# TODO: Implementera multiplikation och division
+a = 10
+b = 5
+
+print("Summan är:", a + b)  # Addition
+print("Skillnaden är:", a - b)  # Subtraktion
+\end{lstlisting}

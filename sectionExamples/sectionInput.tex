@@ -1,0 +1,93 @@
+\section{Kodexempel: Input (Att ta emot data från användaren)}
+\label{examples:input}
+\exToSecRef{section:input}
+\subsection*{Grunderna för \texttt{input()}}
+
+\begin{lstlisting}[title=Exempel 1: Läsa in text från användaren]
+name = input("Vad heter du? ")
+print("Hej, " + name + "!")
+# Om användaren skriver: Anna
+# Output: Hej, Anna!
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 2: Mata in ett heltal]
+age = input("Hur gammal är du? ")
+print("Du är " + age + " år gammal.")
+# Om användaren skriver: 25
+# Output: Du är 25 år gammal.
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 3: Fel vid aritmetiska operationer utan typkonvertering]
+age = input("Hur gammal är du? ")
+print(age + 5)  # Ger ett TypeError: Kan inte addera sträng och heltal
+\end{lstlisting}
+
+\subsection*{Datatypkonvertering}
+
+\begin{lstlisting}[title=Exempel 4: Konvertera input till ett heltal]
+age = int(input("Hur gammal är du? "))
+print("Om fem år är du", age + 5, "år gammal.")
+# Om användaren skriver: 25
+# Output: Om fem år är du 30 år gammal.
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 5: Konvertera input till ett flyttal]
+height = float(input("Hur lång är du i meter? "))
+print("Du är", height, "meter lång.")
+# Om användaren skriver: 1.75
+# Output: Du är 1.75 meter lång.
+\end{lstlisting}
+
+\subsection*{Kontroll av datatyper}
+
+\begin{lstlisting}[title=Exempel 6: Kontrollera datatyp efter konvertering]
+number = int(input("Ange ett heltal: "))
+print("Datatypen är:", type(number))
+# Om användaren skriver: 42
+# Output: Datatypen är: <class 'int'>
+\end{lstlisting}
+
+\subsection*{Fler exempel}
+
+\begin{lstlisting}[title=Exempel 7: Utföra matematiska operationer]
+a = int(input("Ange det första talet: "))
+b = int(input("Ange det andra talet: "))
+print("Summan är:", a + b)
+print("Produkten är:", a * b)
+# Om användaren skriver: 3 och 5
+# Output: Summan är: 8
+# Output: Produkten är: 15
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 8: Kombinera text och beräkningar]
+name = input("Vad heter du? ")
+birth_year = int(input("Vilket år föddes du? "))
+current_year = 2024
+age = current_year - birth_year
+print("Hej", name + ", du är", age, "år gammal.")
+# Om användaren skriver: Anna och 2000
+# Output: Hej Anna, du är 24 år gammal.
+\end{lstlisting}
+
+\subsection*{Felkänslig inmatning}
+
+\begin{lstlisting}[title=Exempel 9: Hantera felaktig inmatning]
+try:
+    number = int(input("Ange ett heltal: "))
+    print("Du skrev:", number)
+except ValueError:
+    print("Det där var inte ett heltal!")
+# Om användaren skriver: hej
+# Output: Det där var inte ett heltal!
+\end{lstlisting}
+
+\begin{lstlisting}[title=Exempel 10: Begära inmatning tills den är korrekt]
+while True:
+    try:
+        number = int(input("Ange ett heltal: "))
+        print("Du skrev:", number)
+        break
+    except ValueError:
+        print("Det där var inte ett heltal. Försök igen.")
+# Användaren kan försöka flera gånger tills korrekt värde anges.
+\end{lstlisting}

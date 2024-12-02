@@ -1,0 +1,121 @@
+
+\section{If-satser (Beslutsfattande)}
+\label{section:if}
+
+\subsection{Vad är en \texttt{if}-sats?}
+I programmering används \texttt{if}-satser för att fatta beslut baserat på vissa villkor. En \texttt{if}-sats gör att programmet endast kör en viss del av koden om ett villkor är sant.
+
+\begin{lstlisting}[title=Exempel på if-sats]
+x = 10
+if x > 5:
+    print("x är större än 5")
+\end{lstlisting}
+
+I detta exempel kontrollerar programmet om värdet på \texttt{x} är större än 5. Om villkoret är sant (vilket det är, eftersom \texttt{x = 10}), skriver programmet ut \texttt{x är större än 5}.
+\begrepp{Villkor}{Ett villkor är ett påstående som är antingen sant eller falskt, till exempel \texttt{x > 5}.}
+
+\observera{En if-sats har alltid ett villkor följt av tecknet \textbf{:}\\
+Därefter kommer en eller flera rader som är högerjusterade (se indentering nedan).}
+
+\subsection{Indentering i koden}
+Python använder indragning eller högerjusterad kod för att markera vilken kod som hör till en \texttt{if}-sats. All kod som är indragen efter en \texttt{if}-sats körs om villkoret är sant.
+Detta kallas för indentering och markerar alltså vilken kod som tillhör vilket kodblock.
+
+\begin{lstlisting}[title=Indragning är viktigt]
+x = 10
+if x > 5:
+    print("Detta är indraget")
+    print("Det körs om villkoret är sant")
+\end{lstlisting}
+
+I programmet är båda print indenterade vilket gör att dom bara körs när villkoret
+\textbf{x är större än 5} är sant. 
+\begrepp{Indentering}{Högerjusterad eller indragen kod, vilket används i python för att markera vilken kod som tillhör ett kodblock. 
+Exempelvis vilken kod som är inuti en if-sats.}
+
+\subsection{Jämförelseoperatorer}
+För att skapa villkor används jämförelseoperatorer, som till exempel:\\
+\textbf{==} Är lika med (till exempel \texttt{x == 5})\\
+\textbf{!=} Är inte lika med (till exempel \texttt{x != 5})\\
+\textbf{>} Större än\\
+\textbf{<} Mindre än\\
+\textbf{>=} Större än eller lika med\\
+\textbf{<=} Mindre än eller lika med\\
+
+\observera{== betyder att vi jämför om två saker är likamed varandra. Jämför med ett likamedtecken (=) som används för att ge ett variabel ett värde (tilldelning).
+Vi använder == när vi gör en jämförelse för att inte förväxla med variabeltilldelning.}
+
+\begin{lstlisting}[title=Exempel med jämförelseoperatorer]
+x = 8
+if x != 5:
+    print("x är inte lika med 5")
+\end{lstlisting}
+
+Här är villkoret sant eftersom \texttt{x = 8} inte är lika med \texttt{5}, så texten skrivs ut.
+
+\subsection{\texttt{else} och \texttt{elif}}
+Ibland vill vi hantera flera olika fall. Då kan vi använda \texttt{else} för att göra något när villkoret inte är sant, eller \texttt{elif} (som står för "else if") för att lägga till fler villkor.
+
+\begin{lstlisting}[title=Exempel med else och elif]
+x = 10
+if x < 5:
+    print("x är mindre än 5")
+elif x == 10:
+    print("x är exakt 10")
+else:
+    print("x är större än 5 men inte 10")
+\end{lstlisting}
+
+När detta körs, skrivs \texttt{x är exakt 10} ut, eftersom det andra villkoret (\texttt{x == 10}) är sant.
+\observera{En elif körs bara om alla villkor ovanför är falska.}
+
+\begrepp{else}{En \texttt{else}-sats körs när inget av de tidigare villkoren i en \texttt{if}-sats är sanna.}
+\begrepp{elif}{En \texttt{elif}-sats används för att lägga till ytterligare villkor till en \texttt{if}-sats.}
+
+\subsection{Övningar}
+\begin{exercise}
+Skriv en \texttt{if}-sats som kontrollerar om ett tal är större än 100. Om villkoret är sant, skriv ut \texttt{Talet är stort.}
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+x = 150
+if x > 100:
+    print("Talet är stort.")
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Använd en \texttt{if}-sats med \texttt{else}. Skriv ett program som kontrollerar om ett tal är negativt eller positivt, och skriver ut lämpligt meddelande.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+x = -10
+if x >= 0:
+    print("Talet är positivt.")
+else:
+    print("Talet är negativt.")
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skapa ett program som använder \texttt{elif} för att skriva ut olika meddelanden beroende på ålder:
+- Om åldern är under 13, skriv \texttt{Du är ett barn.}
+- Om åldern är mellan 13 och 19 (inklusive), skriv \texttt{Du är en tonåring.}
+- Annars skriv \texttt{Du är vuxen.}
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+age = 15
+if age < 13:
+    print("Du är ett barn.")
+elif age <= 19:
+    print("Du är en tonåring.")
+else:
+    print("Du är vuxen.")
+\end{lstlisting}
+\end{solution}
+
+\secToExRef{examples:if}

@@ -1,0 +1,79 @@
+
+
+\section{Input (Att ta emot data från användaren)}
+\label{section:input}
+
+\subsection{Vad är input?}
+I Python används funktionen \texttt{input()} för att ta emot data från användaren. Med \texttt{input()} kan program bli interaktiva genom att ställa frågor eller vänta på användarens svar.
+
+\begin{lstlisting}[title=Exempel på input]
+name = input("Vad heter du? ")
+print("Hej, " + name + "!")
+\end{lstlisting}
+
+I det här exemplet:
+- Användaren blir tillfrågad \texttt{"Vad heter du?"}.
+- Svaret lagras i variabeln \texttt{name}.
+- Programmet använder \texttt{print()} för att hälsa på användaren med det inskrivna namnet.
+
+\begrepp{Input}{Data som användaren skickar in i programmet, ofta via tangentbordet.}
+
+
+\subsection{Arbeta med olika datatyper}
+Funktionen \texttt{input()} returnerar alltid text (strängar). Om du vill använda det inskrivna värdet som ett tal måste du omvandla det med \texttt{int()} (heltal) eller \texttt{float()} (decimaltal).
+
+\begin{lstlisting}[title=Exempel på input med tal]
+age = int(input("Hur gammal är du? "))
+age = age + 1
+print("Nästa år fyller du " + str(age) + " år.")
+\end{lstlisting}
+
+I detta exempel:\\
+1. \texttt{input()} tar emot en text. Det vill säga en string. \\
+2. \texttt{int()} konverterar string-värdet till ett heltal. 
+Eftersom vi omvandlat våran variabel till en int kan vi sen göra en beräkning med den \textbf{age=age+1}.\\
+3. \texttt{str()} används för att omvandla talet tillbaka till text i utskriften.\\
+
+\subsection{Övningar}
+\begin{exercise}
+Skriv ett program som frågar användaren efter deras favoritfärg och sedan skriver ut \texttt{"Din favoritfärg är [färgen]"}. 
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+color = input("Vad är din favoritfärg? ")
+print("Din favoritfärg är " + color + ".")
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skapa ett program som frågar användaren efter två tal och sedan skriver ut summan av dem.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+num1 = int(input("Ange det första talet: "))
+num2 = int(input("Ange det andra talet: "))
+print("Summan är: " + str(num1 + num2))
+\end{lstlisting}
+\end{solution}
+
+\begin{exercise}
+Skriv ett program som frågar användaren efter deras ålder. Om åldern är mindre än 18, skriv ut \texttt{"Du är inte myndig."}. Annars, skriv ut \texttt{"Du är myndig."}.
+\end{exercise}
+
+\begin{solution}
+\begin{lstlisting}
+age = int(input("Hur gammal är du? "))
+if age < 18:
+    print("Du är inte myndig.")
+else:
+    print("Du är myndig.")
+\end{lstlisting}
+\end{solution}
+
+\subsection{Sammanfattning}
+- Funktionen \texttt{input()} används för att ta emot data från användaren.  \\
+- Data från \texttt{input()} är alltid text (strängar). Omvandling behövs för att arbeta med tal.  \\
+
+\secToExRef{examples:input}

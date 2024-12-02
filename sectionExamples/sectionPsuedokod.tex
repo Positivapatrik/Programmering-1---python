@@ -1,0 +1,136 @@
+\section{Kodexempel: Pseudokod}
+\label{examples:psuedocode}
+\exToSecRef{section:psuedocode}
+\subsection*{Exempel 1: Summera tal i en lista}
+
+\textbf{Pseudokod:}
+\begin{verbatim}
+START
+  Lista = [10, 20, 30, 40]
+  SUMMA = 0
+  FOR varje TAL i Lista
+    SUMMA = SUMMA + TAL
+  END FOR
+  Skriv SUMMA
+END
+\end{verbatim}
+
+\textbf{Python-kod:}
+\begin{lstlisting}[title=Summera tal i en lista]
+tal_lista = [10, 20, 30, 40]
+summa = 0
+
+for tal in tal_lista:
+    summa += tal
+
+print(f"Summan är: {summa}")
+# Output: Summan är: 100
+\end{lstlisting}
+
+\subsection*{Exempel 2: Kontrollera om ett tal är jämnt}
+
+\textbf{Pseudokod:}
+\begin{verbatim}
+START
+  Läs in TAL
+  IF TAL modulo 2 = 0 THEN
+    Skriv "Talet är jämnt"
+  ELSE
+    Skriv "Talet är udda"
+  END IF
+END
+\end{verbatim}
+
+\textbf{Python-kod:}
+\begin{lstlisting}[title=Kontrollera om ett tal är jämnt]
+tal = int(input("Ange ett tal: "))
+
+if tal % 2 == 0:
+    print("Talet är jämnt")
+else:
+    print("Talet är udda")
+# Testa med tal som 4 och 7
+\end{lstlisting}
+
+\subsection*{Exempel 3: Hitta det största talet i en lista}
+
+\textbf{Pseudokod:}
+\begin{verbatim}
+START
+  Lista = [12, 45, 23, 89]
+  MAX = Lista[0]
+  FOR varje TAL i Lista
+    IF TAL > MAX THEN
+      MAX = TAL
+    END IF
+  END FOR
+  Skriv MAX
+END
+\end{verbatim}
+
+\textbf{Python-kod:}
+\begin{lstlisting}[title=Hitta det största talet i en lista]
+tal_lista = [12, 45, 23, 89]
+största_talet = tal_lista[0]
+
+for tal in tal_lista:
+    if tal > största_talet:
+        största_talet = tal
+
+print(f"Det största talet är: {största_talet}")
+# Output: Det största talet är: 89
+\end{lstlisting}
+
+\subsection*{Exempel 4: Beräkna fakultet av ett tal}
+
+\textbf{Pseudokod:}
+\begin{verbatim}
+START
+  Läs in TAL
+  PRODUKT = 1
+  FOR i = 1 TILL TAL
+    PRODUKT = PRODUKT * i
+  END FOR
+  Skriv PRODUKT
+END
+\end{verbatim}
+
+\textbf{Python-kod:}
+\begin{lstlisting}[title=Beräkna fakultet av ett tal]
+tal = int(input("Ange ett tal: "))
+fakultet = 1
+
+for i in range(1, tal + 1):
+    fakultet *= i
+
+print(f"Fakulteten av {tal} är: {fakultet}")
+# Testa med 5 (output: 120)
+\end{lstlisting}
+
+\subsection*{Exempel 5: Fibonaccital (Iterativt)}
+
+\textbf{Pseudokod:}
+\begin{verbatim}
+START
+  Läs in N
+  A = 0
+  B = 1
+  FOR i = 1 TILL N
+    Skriv A
+    TEMP = A + B
+    A = B
+    B = TEMP
+  END FOR
+END
+\end{verbatim}
+
+\textbf{Python-kod:}
+\begin{lstlisting}[title=Fibonaccital - Iterativ metod]
+n = int(input("Hur många Fibonaccital vill du visa? "))
+a, b = 0, 1
+
+for _ in range(n):
+    print(a, end=" ")
+    a, b = b, a + b
+# Testa med 7 (output: 0 1 1 2 3 5 8)
+\end{lstlisting}
